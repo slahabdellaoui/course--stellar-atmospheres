@@ -6,7 +6,7 @@ Course materials for «Stellar Atmospheres» for the acadmeic period 2017-I at t
 
 * **Course** : Stellar Atmospheres.
 * **Duration** : 17 weeks.
-* **Professor** : Mg. Sc. Rafael Carlos.
+* **Professor** : Dr. Rafael Edgardo Carlos Reyes.
 
 ## Contributors
 

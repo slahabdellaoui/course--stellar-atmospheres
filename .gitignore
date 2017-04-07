@@ -1,1 +1,8 @@
+# Directory patterns
 .ipynb_checkpoints
+
+# File patterns
+*.aux
+*.log
+*.out
+*.spl

@@ -1,0 +1,120 @@
+%% Preámbulo
+%% ----------------------------------------------------------------------------
+\documentclass[10pt, spanish , a4paper, 1p]{elsarticle}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{luximono}
+\usepackage{textcomp}
+\usepackage{titlesec}
+\usepackage{amstext}
+\usepackage{charter}
+\usepackage{xcolor}
+
+\hypersetup{
+  pdftitle={F\'{i}sica de Plasmas - Atm\'{o}sferas Estelares - Pr\'{a}ctica 1},
+  pdfauthor={Mart\'{i}n Josemar\'{i}a Vuelta Rojas},
+  pdfpagelayout=OneColumn,
+  pdfnewwindow=true,
+  pdfdisplaydoctitle=true,
+  pdfstartview=XYZ,
+  plainpages=false,
+  unicode=true,
+  bookmarksnumbered=true,
+  bookmarksopen=true,
+  bookmarksopenlevel=3,
+  breaklinks=true,
+  colorlinks=true,
+  pdfborder={0 0 0}
+}
+
+%% Definicion de comandos
+%% ----------------------------------------------------------------------------
+\makeatletter
+
+%% Colores
+\definecolor{red-A700}{rgb}{1.0000, 0.0000, 0.0000}
+\definecolor{grey-050}{rgb}{0.9804, 0.9804, 0.9804}
+\definecolor{grey-800}{rgb}{0.2588, 0.2588, 0.2588}
+\definecolor{grey-900}{rgb}{0.1216, 0.1216, 0.1216}
+
+\newcommand{\globalcolor}[1]{\color{#1}\global\let\default@color\current@color}
+
+%% Fuente de ancho fijo
+\renewcommand{\ttdefault}{lmtt}
+\renewcommand{\familydefault}{\sfdefault}
+
+%% Evitar la indentación automática
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+%% Documento
+%% ----------------------------------------------------------------------------
+\AtBeginDocument{\globalcolor{grey-900}}
+\begin{document}
+  %% Titulo, autor y resumen --------------------------------------------------
+  {\noindent\centering\includegraphics[width=1cm]{./unmsm.png}\par}
+  {\noindent\centering\scriptsize{\textsc{\textrm{UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS}}}\par}
+  {\noindent\centering\tiny{\textit{\textrm{Universidad del Perú, Decana de América}}}\par}
+  \vskip\baselineskip
+  {\noindent\center\footnotesize{Física de plasmas}\par}
+  {\noindent\center{Práctica N\textdegree\ 1}\par}
+  \vskip\baselineskip
+  {\noindent\hrule\par}
+
+  \begin{enumerate}[wide, labelwidth=!, labelindent=0pt, label=\textbf{\textrm{\arabic*)}}, ref=\arabic*]
+    \item \label{p1} Dadas las curvas de sensibilidad de los filtros $U$, $B$ y $V$ del sistema fotométrico $UBV$, y las curvas de sensibilidad del ojo humano (día y noche); determine la \emph{longitud de onda equivalente} para cada una de las curvas de sensibilidad.
+
+    \begin{table}[h!]
+      \centering
+      \begin{tabular}{ c | c | c | c | c | c }
+        $\lambda(\mu)$ & $U_\lambda$ & $B_\lambda$ & $V_\lambda$ & $O_{\textit{d\'ia}}$ & $O_{noche}$ \\\hline
+        0.28           & 0.00        &             &             &                   &      \\
+        0.30           & 0.13        &             &             &                   &      \\
+        0.32           & 0.60        &             &             &                   &      \\
+        0.34           & 0.92        &             &             &                   &      \\
+        0.36           & 1.00        & 0.00        &             &                   &      \\
+        0.38           & 0.72        & 0.13        &             &                   & 0.00 \\
+        0.40           & 0.09        & 0.92        &             &                   & 0.02 \\
+        0.42           & 0.00        & 1.00        &             & 0.00              & 0.08 \\
+        0.44           &             & 0.92        &             & 0.02              & 0.21 \\
+        0.46           &             & 0.76        & 0.00        & 0.06              & 0.41 \\
+        0.48           &             & 0.56        & 0.01        & 0.14              & 0.65 \\
+        0.50           &             & 0.39        & 0.36        & 0.32              & 0.90 \\
+        0.52           &             & 0.20        & 0.91        & 0.71              & 0.96 \\
+        0.54           &             & 0.07        & 0.98        & 0.95              & 0.68 \\
+        0.56           &             & 0.00        & 0.80        & 1.00              & 0.35 \\
+        0.58           &             &             & 0.59        & 0.87              & 0.14 \\
+        0.60           &             &             & 0.39        & 0.63              & 0.05 \\
+        0.62           &             &             & 0.22        & 0.38              & 0.02 \\
+        0.64           &             &             & 0.09        & 0.18              & 0.01 \\
+        0.66           &             &             & 0.03        & 0.06              & 0.00 \\
+        0.68           &             &             & 0.01        & 0.02              &      \\
+        0.70           &             &             & 0.00        & 0.00              &      \\
+        \noalign{\vskip 6pt}\hline
+      \end{tabular}
+    \end{table}
+
+
+    \item \label{p2} Caclular la \emph{longitud de onda efectiva} del filtro $V$ para el flijo de un cuerpo negro cuya temperaturas son $T = 25000 K$, $T = 10000 K$, $T = 5000 K$.
+
+
+    \item \label{p3} Si se tiene un flujo de cuerpo negro observado con un receptor cuya sensibilidad es la misma que la del filtro $V$ del sistema fotométrico $UBV$. Dar la longitud de onda del \emph{flujo monocromático efectivo} que se calcula con
+
+    $$\left\langle B\right\rangle = \frac{\displaystyle{\int_{0}^{\infty} V_{\lambda} B_{\lambda} \left(T\right) \mathrm{d}\lambda}}{\displaystyle{\int_{0}^{\infty} V_{\lambda} \mathrm{d}\lambda}}$$
+
+    Asociar $\left\langle B\right\rangle = B_{\lambda} \left(T\right)$ y decir para que $\lambda$ se da la igualdad. Considerar $T = 25000 K$, $T = 10000 K$ y $T = 5000 K$
+
+
+    \item \label{p4} Cuál es el cambio $\delta V$ en la magnitud $V$ del sistema fotmétrico $UBV$ que produce un cambio de \emph{longitud de onda efectiva} $\delta\lambda$ calculado en \ref{p2}. Calcular $\delta\lambda = {\lambda}_{eq} - {\lambda}_{eff}$.
+
+    Si $V = -2.5 \log f_V + C$ tomar $f_V \simeq B\left(T\right) $, $T=T\left({\lambda}_{eff}\right)$; suponer $B_{\lambda}\ \alpha\ {\lambda}^{-v} \mathrm{e}^{-\frac{hc}{\lambda k T}}$ ley de Wien; calcular $\left(\frac{\mathrm{d} \ln {f}_{\lambda}}{\mathrm{d}\lambda}\right)_{\lambda = {\lambda}_{eq}}$
+
+    \item \label{p5} Cual es el cabio pocentual en $f_V$ que representa el cambio $\delta V$ calculado en \ref{p4}.
+
+
+  \end{enumerate}
+\end{document}

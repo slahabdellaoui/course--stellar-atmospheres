@@ -3,6 +3,8 @@
 
 # File patterns
 *.aux
+*.fdb_latexmk
+*.fls
 *.log
 *.nav
 *.out

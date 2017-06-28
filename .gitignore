@@ -4,5 +4,10 @@
 # File patterns
 *.aux
 *.log
+*.nav
 *.out
+*.pyg*
+*.snm
 *.spl
+*.synctex*
+*.toc

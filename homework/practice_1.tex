@@ -8,11 +8,8 @@
 \usepackage{hyperref}
 \usepackage{luximono}
 \usepackage{textcomp}
-\usepackage{graphicx}
-\usepackage{titlesec}
 \usepackage{amstext}
 \usepackage{charter}
-\usepackage{xcolor}
 
 %% Settings
 %% ----------------------------------------------------------------------------
@@ -41,40 +38,20 @@
 %% ----------------------------------------------------------------------------
 \makeatletter
 
-%% Colores
-\definecolor{pure-blue}{rgb}{0.0000, 0.0000, 1.0000}
-\definecolor{red-500}{rgb}{0.9569, 0.2627, 0.2118}
-\definecolor{red-A700}{rgb}{0.8353, 0.0000, 0.0000}
-
-\definecolor{grey-050}{rgb}{0.9804, 0.9804, 0.9804}
-\definecolor{grey-800}{rgb}{0.2588, 0.2588, 0.2588}
-\definecolor{grey-900}{rgb}{0.1216, 0.1216, 0.1216}
-\definecolor{green-400}{rgb}{0.4000, 0.7333, 0.4157}
-
-\newcommand{\globalcolor}[1]{\color{#1}\global\let\default@color\current@color}
-
 %% Fuente de ancho fijo
 \renewcommand{\ttdefault}{lmtt}
-% \renewcommand{\familydefault}{\sfdefault}
-
-%% Evitar la indentación automática
-\setlength{\parindent}{0pt}
+%\renewcommand{\familydefault}{\sfdefault}
 
 \makeatother
 
 %% Documento
 %% ----------------------------------------------------------------------------
-\AtBeginDocument{\globalcolor{grey-900}}
+% \AtBeginDocument{\globalcolor{grey-900}}
 \begin{document}
   %% Titulo, autor y resumen --------------------------------------------------
-  {\noindent\centering\includegraphics[width=1cm]{./unmsm.png}\par}
-  {\noindent\centering\scriptsize{\textsc{\textrm{UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS}}}\par}
-  {\noindent\centering\tiny{\textit{\textrm{Universidad del Perú, Decana de América}}}\par}
-  \vskip\baselineskip
-  {\noindent\center\footnotesize{Atmósferas estelares}\par}
-  {\noindent\center{Práctica N\textdegree\ 1}\par}
-  \vskip\baselineskip
-  {\noindent\hrule\par}
+  \course{Atmósferas Estelares}
+  \title{Práctica N\textdegree\ 1}
+  \maketitle
 
   \begin{enumerate}[wide, labelwidth=!, labelindent=0pt, label=\textbf{\textrm{\arabic*)}}, ref=\arabic*]
     \item \label{prob:1} Dadas las curvas de sensibilidad de los filtros $U$, $B$ y $V$ del sistema fotométrico $UBV$, y las curvas de sensibilidad del ojo humano (día y noche); determine la \emph{longitud de onda equivalente} para cada una de las curvas de sensibilidad.

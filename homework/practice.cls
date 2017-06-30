@@ -14,7 +14,7 @@
 \def\@shortjid{practice}
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{\@shortjid}[\RCSdate, \RCSversion: \@journal]
-\LoadClass{elsarticle}
+\LoadClass{article}
 
 \RequirePackage[spanish]{babel}
 \RequirePackage[utf8]{inputenc}
@@ -22,32 +22,62 @@
 \RequirePackage{graphicx}
 \RequirePackage{xstring}
 \RequirePackage{xcolor}
+\RequirePackage{ifthen}
 
 \definecolor{textcolor}{rgb}{0.1216, 0.1216, 0.1216}
 \definecolor{backgroundcolor}{rgb}{0.9804, 0.9804, 0.9804}
 \def\textcolor{textcolor}
 \def\backgroundcolor{backgroundcolor}
+% \small\textsc\textrm{UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS}\par%
+% \par%
 
-\let\@course\@empty
-\def\course#1{%
-  \g@addto@macro\@course{#1}%
+\let\@logo\@empty
+\newcommand{\logo}[1]{
+  \def\@logo{#1}
+}
+
+\let\@university\@empty
+\newcommand{\university}[1]{
+  \def\@university{#1}
+}
+
+\def\@course{\@latex@warning@no@line{No \noexpand\course given}}
+\newcommand{\course}[1]{
+  \def\@course{#1}
 }
 
 \def\maketitle{
   \begin{center}
-    \includegraphics[width=1cm]{unmsm.png}\par%
-    \scriptsize\textsc\textrm{UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS}\par%
-    \tiny\textit\textrm{Universidad del Perú, Decana de América}\par%
-    \vskip\baselineskip%
-    {\small\@course\par}%
-    \Large\@title\par%
+    \ifx\@logo\@empty
+      \logo{\@latex@warning@no@line{No \noexpand\logo given}}
+      \@logo
+    \else
+      \includegraphics[width=1cm]{\@logo}\par
+      \ifx\@university\@empty
+        \vskip\baselineskip
+      \fi
+    \fi
+    \ifx\@university\@empty
+      \university{\@latex@warning@no@line{No \noexpand\university given}}
+      \@university
+    \else
+      \small\textsc{\@university}\par
+      \vskip\baselineskip
+    \fi
+    \ifx\@course\@empty
+      \course{\@latex@warning@no@line{No \noexpand\course given}}
+      \@course
+    \else
+      \large\@course\par
+    \fi
+    {\Large\@title\par}
   \end{center}
   \vskip\baselineskip%
   \hrule\par%
 }
 
 \AtBeginDocument{%
-    \color{\textcolor}\global\let\default@color\current@color%
-    \pagecolor{\backgroundcolor}%
-    \setlength{\parindent}{0pt}%
+  \color{\textcolor}\global\let\default@color\current@color%
+  \pagecolor{\backgroundcolor}%
+  \setlength{\parindent}{0pt}%
 }

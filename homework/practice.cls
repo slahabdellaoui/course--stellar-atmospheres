@@ -66,7 +66,7 @@
       \course{\@latex@warning@no@line{No \noexpand\course given}}
       \@course
     \else
-      \large\@course\par
+      \normalsize\@course\par
     \fi
     {\Large\@title\par}
   \end{center}

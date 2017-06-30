@@ -28,8 +28,6 @@
 \definecolor{backgroundcolor}{rgb}{0.9804, 0.9804, 0.9804}
 \def\textcolor{textcolor}
 \def\backgroundcolor{backgroundcolor}
-% \small\textsc\textrm{UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS}\par%
-% \par%
 
 \let\@logo\@empty
 \newcommand{\logo}[1]{
@@ -48,23 +46,23 @@
 
 \def\maketitle{
   \begin{center}
-    \ifx\@logo\@empty
+    \if\@logo\@empty
       \logo{\@latex@warning@no@line{No \noexpand\logo given}}
       \@logo
     \else
       \includegraphics[width=1cm]{\@logo}\par
-      \ifx\@university\@empty
+      \if\@university\@empty
         \vskip\baselineskip
       \fi
     \fi
-    \ifx\@university\@empty
+    \if\@university\@empty
       \university{\@latex@warning@no@line{No \noexpand\university given}}
       \@university
     \else
       \small\textsc{\@university}\par
       \vskip\baselineskip
     \fi
-    \ifx\@course\@empty
+    \if\@course\@empty
       \course{\@latex@warning@no@line{No \noexpand\course given}}
       \@course
     \else

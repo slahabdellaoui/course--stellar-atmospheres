@@ -10,6 +10,7 @@
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{amstext}
+\usepackage{amsmath}
 \usepackage{caption}
 \usepackage{charter}
 
@@ -52,6 +53,16 @@
 \renewcommand{\ttdefault}{lmtt}
 \renewcommand{\spanishtablename}{Tabla}
 
+%% Mathematical commnads
+\newcommand\integrate[4]{%
+    \int_{#3}^{#4} {#1 \mathrm{d} #2}
+}
+\makeatother
+
+\newcommand\trapezerule[4]{%
+    \sum_{n=#3}^{#4} {\frac{#1(#2_{n+1}) + #1(#2_n)}{2} \times (#2_{n+1} - #2_n)}
+}
+
 \makeatother
 
 %% Documento
@@ -80,7 +91,7 @@
         \begin{table}[h!]
             \centering
             \begin{tabular}{ c | c | c | c | c | c }
-                $\lambda(\mu)$  & $U_\lambda$  & $B_\lambda$  & $V_\lambda$  & $O_{\textit{d\'ia}}$  & $O_{\textit{noche}}$ \\
+                $\lambda(\mu m)$  & $U_\lambda$  & $B_\lambda$  & $V_\lambda$  & $O_{\textit{d\'ia}}$  & $O_{\textit{noche}}$ \\
                 &  &  &  &  &  \\[-0.8em]\hline
                 &  &  &  &  &  \\[-0.8em]
                 0.28  & 0.00  &  &  &  &  \\
@@ -111,10 +122,70 @@
                 Curvas de sensibilidad de los filtros $U$, $B$ y $V$ del sistema fotométrico $UBV$, y del ojo humano para el día y la noche.
             }\label{table:1}
         \end{table}
+
+        \begin{solution}
+            Para una curva de sensiblidad $s\left(\lambda \right)$, la longitud de onda equivalente $\lambda_{eq}$ viene dada por la fórmula
+
+            \begin{equation}\label{eq:equivalent_wavelength}
+                \lambda_{eq} = \frac{\displaystyle\integrate{\lambda s(\lambda)}{\lambda}{0}{\infty} }{\displaystyle\integrate{s(\lambda)}{\lambda}{0}{\infty}}.
+            \end{equation}
+
+            Con los datos proporcionados en  la tabla \ref{table:1}, calculamos las integrales en la ecuación \ref{eq:equivalent_wavelength} usando el método del trapecio
+
+            \begin{equation*}
+                \integrate{f(x)}{x}{a}{b} = \trapezerule{f}{x}{0}{N-1}\,,\,a=x_{0} \wedge b = x_N.
+            \end{equation*}
+
+            Los resultados obtenidos se muestran en la tabla siguiente:
+
+            \begin{table}[h!]
+                \centering
+                \begin{tabular}{ l | c }
+                      & $\lambda_{eq}\ (\mu m)$ \\
+                      &  \\[-0.8em]\hline
+                      &  \\[-0.8em]
+                    $U_{\lambda}$  & 0.35 \\
+                    $B_{\lambda}$  & 0.44 \\
+                    $V_{\lambda}$  & 0.55 \\
+                    $O_{\textrm{día}}$  & 0.56 \\
+                    $O_{\textrm{noche}}$  & 0.51 \\
+                    \hline
+                \end{tabular}
+            \end{table}
+        \end{solution}
     \end{problem}
 
     \begin{problem}\label{prob:2}
-        Caclular la \emph{longitud de onda efectiva} del filtro $V$ para el flujo de un cuerpo negro con las siguientes temperaturas: $T = 25000 K$, $T = 10000 K$, $T = 5000 K$.
+        Empleando los datos de la tabla \ref{table:1}, caclular la \emph{longitud de onda efectiva} del filtro $V$ para el flujo de un cuerpo negro con las siguientes temperaturas: $T = 25000 K$, $T = 10000 K$, $T = 5000 K$.
+
+        \begin{solution}
+            Para una curva de sensiblidad $s\left(\lambda \right)$ y una fuente con irradiancia $f(T, \lambda)$, la longitud de onda effectiva $\lambda_{eff}$ viene dada por la fórmula
+
+            \begin{equation}\label{eq:effective_wavelength}
+                \lambda_{eff} = \frac{\displaystyle\integrate{\lambda f(T, \lambda) s(\lambda)}{\lambda}{0}{\infty} }{\displaystyle\integrate{f(T, \lambda) s(\lambda)}{\lambda}{0}{\infty}}.
+            \end{equation}
+
+            Para el cuerpo negro tenemos que la irradiancia está data por la funcion de Planck
+
+            \begin{equation}\label{eq:effective_wavelength}
+                f(T, \lambda) = \frac{2 h c^2}{\lambda^5}\frac{1}{\exp(\frac{h c}{\lambda k T}) - 1}.
+            \end{equation}
+
+            Empleando el método del trapecio nuevamente, tabulamos el valor de $\lambda_{eff}$ para las temperaturas $T = 25000 K$, $T = 10000 K$, $T = 5000 K$ para el filtro V en la tabla siguiente.
+
+            \begin{table}[h!]
+                \centering
+                \begin{tabular}{ c | c }
+                    $T\ (K)$  & $\lambda_{eff}\ (\mu m)$ \\
+                      &  \\[-0.8em]\hline
+                      &  \\[-0.8em]
+                    25000  & 0.547 \\
+                    10000  & 0.549 \\
+                    5000   & 0.554 \\
+                    \hline
+                \end{tabular}
+            \end{table}
+        \end{solution}
     \end{problem}
 
     \begin{problem}\label{prob:3}

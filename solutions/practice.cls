@@ -69,8 +69,8 @@
 \def\@theproblem{{\bfseries \problemname~\arabic{problem}}}
 
 \newenvironment{problem}[1]{
-  \refstepcounter{problem}\par\bigskip
-  \@theproblem\par
+  \refstepcounter{problem}\par\bigskip%
+  \@theproblem\par%
   #1%
 }{\par\medskip\ignorespacesafterend}
 
@@ -80,8 +80,8 @@
 \def\@theproblempart{\alph{problempart})}
 
 \newenvironment{problempart}[1]{
-  \refstepcounter{problempart}\par\bigskip
-  \setlength{\leftskip}{10pt}
+  \refstepcounter{problempart}\par\bigskip%
+  \setlength{\leftskip}{10pt}%
   \@theproblempart~{#1}%
 }
 
@@ -95,7 +95,7 @@
 \def\@therecommendation{\textit{\bfseries \recommendationname:}}
 
 \newenvironment{recommendation}[1]{
-  \par\bigskip
+  \par\bigskip%
   \@therecommendation~{#1}%
 }
 
@@ -106,11 +106,12 @@
   \addto\captionsspanish{\def\solutionname{Solución}}%
 }
 
-\def\@thesolution{\textit{\bfseries \solutionname:}}
+\def\@thesolution{\textit{\bfseries \solutionname}}
 
 \newenvironment{solution}[1]{
-  \par\bigskip
-  \@thesolution~{#1}%
+  \par\bigskip%
+  \@thesolution\par%
+  #1%
 }
 
 %% make title customization ---------------------------------------------------

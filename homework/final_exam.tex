@@ -1,0 +1,128 @@
+%% Preámbulo
+%% ----------------------------------------------------------------------------
+\documentclass[10pt,spanish,a4paper]{practice}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{luximono}
+\usepackage{textcomp}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{charter}
+
+%% Settings
+%% ----------------------------------------------------------------------------
+% hyperref
+\hypersetup{
+    pdftitle={Física de Plasmas: Atm\'{o}sferas Estelares - Examen Final},
+    pdfauthor={Mart\'{i}n Josemar\'{i}a Vuelta Rojas},
+    pdfpagelayout=OneColumn,
+    pdfnewwindow=true,
+    pdfdisplaydoctitle=true,
+    pdfstartview=XYZ,
+    plainpages=false,
+    unicode=true,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=3,
+    breaklinks=true,
+    colorlinks=true,
+    pdfborder={0 0 0}
+}
+
+% graphicx
+\graphicspath{{resources/img/}}
+
+% caption
+\captionsetup{
+    labelfont=bf,
+    textfont=it,
+    justification=centering,
+    width=0.9\textwidth,
+}
+
+%% Definicion de comandos
+%% ----------------------------------------------------------------------------
+\makeatletter
+
+%% Fuente de ancho fijo
+\renewcommand{\ttdefault}{lmtt}
+\renewcommand{\spanishtablename}{Tabla}
+
+\makeatother
+
+%% Documento
+%% ----------------------------------------------------------------------------
+\begin{document}
+    %% Titulo, autor y resumen --------------------------------------------------
+    \logo{unmsm.png}
+    \university{
+        Universidad Nacional Mayor de San Marcos\\
+        {
+            \scriptsize{
+                \textit{
+                    \textup{
+                        Universidad del Perú, Decana de América}
+                    }
+            }
+        }\\
+        {\medskip}
+        {
+            \footnotesize {Facultad de Ciencias Físicas}
+        }
+    }
+    \course{Física de Plasmas: Atmósferas Estelares}
+    \title{Examen Final}
+    \maketitle
+
+    \begin{problem}
+        Suponiendo que el campo de radiación de una atmósfera no gris se descompone en dos corrientes, una saliente $I_{\nu}^{+}\left(\tau_{\nu}\right)$ para $\mu > 0$ y una entrante $I_{\nu}^{-}\left(\tau_{\nu}\right)$ para $\mu < 0$.
+
+        $$
+            \pm\mu\frac{d I_{\nu}^{\pm}\left(\tau_{\nu}\right)}{d \tau_{\nu}} = I_{\nu}^{\pm}\left(\tau_{\nu}\right) - S_{\nu}
+        $$
+
+        Obtener la ecuación diferencial de segundo orden que permita calcular la Intensidad media en función de la opacidad y la función fuente.
+    \end{problem}
+
+    \begin{problem}
+        Si la intensidad específica saliente de la atmósfera se  expresa de la siguiente manera
+
+        $$
+            I\left(0, \mu\right) = A + B \mu + C \mu^2.
+        $$
+
+        Empleando la relación de Eddingtong-Barbier determine la forma de la funcion fuente $S=S\left(\tau\right)$.
+    \end{problem}
+
+    \begin{problem}
+        En una atmósfera gris y en equilibrio radiativo, en la que se suponela función fuente está dada por la función de Planck $S_\nu = B_\nu\left(T\right)$. Si la intensidad media del campo de radiación se expresa como
+
+        $$
+            J_{\nu} = \left[1 - \frac{1}{2}E_{2}\left(\tau\right)\right]B_{\nu}\left(\tau=\tfrac{2}{3}\right)
+        $$
+
+        \begin{problempart}
+            Determine la temperatura $T(0)$ en función de la temperatura $T(\tau=\frac{2}{3})$.
+        \end{problempart}
+
+        \begin{problempart}
+            ¿A qué $T(\tau=\frac{2}{3})$?
+        \end{problempart}
+
+        \begin{problempart}
+            Empleando la relación de Barbier, determine el flujo astrfísico integrado en todas las longitudes de onda.
+        \end{problempart}
+    \end{problem}
+
+    \begin{problem}
+        Derive la ecuación
+
+        $$
+            J\left(\tau\right) = \frac{3}{4}F\left(\tau + Q + \sum_{\alpha=1}^{n-1}L_{\alpha}\mathrm{e}^{-k_{\alpha}\tau}\right)
+        $$
+    \end{problem}
+\end{document}

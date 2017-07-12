@@ -80,7 +80,7 @@
 \def\@theproblempart{\alph{problempart})}
 
 \newenvironment{problempart}[1]{
-  \refstepcounter{problempart}\par\bigskip
+  \refstepcounter{problempart}
   \setlength{\leftskip}{10pt}
   \@theproblempart~{#1}%
 }
@@ -106,11 +106,12 @@
   \addto\captionsspanish{\def\solutionname{Solución}}%
 }
 
-\def\@thesolution{\textit{\bfseries \solutionname:}}
+\def\@thesolution{\textit{\bfseries \solutionname}}
 
 \newenvironment{solution}[1]{
   \par\bigskip
-  \@thesolution~{#1}%
+  \@thesolution\par%
+  {#1}%
 }
 
 %% make title customization ---------------------------------------------------

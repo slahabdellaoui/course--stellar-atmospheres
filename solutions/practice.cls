@@ -69,20 +69,20 @@
 \def\@theproblem{{\bfseries \problemname~\arabic{problem}}}
 
 \newenvironment{problem}[1]{
-  \refstepcounter{problem}\par\bigskip%
-  \@theproblem\par%
+  \refstepcounter{problem}\par\bigskip
+  \@theproblem\par
   #1%
 }{\par\medskip\ignorespacesafterend}
 
 % The problem part environment
-\newcounter{problempart}[problem]
-\renewcommand{\theproblempart}{\theproblem\alph{problempart}}
-\def\@theproblempart{\alph{problempart})}
+\newcounter{ppart}[problem]
+\renewcommand{\theppart}{\theproblem\alph{ppart}}
+\def\@theppart{\alph{ppart})}
 
-\newenvironment{problempart}[1]{
-  \refstepcounter{problempart}\par\bigskip%
-  \setlength{\leftskip}{10pt}%
-  \@theproblempart~{#1}%
+\newenvironment{ppart}[1]{
+  \refstepcounter{ppart}
+  \setlength{\leftskip}{10pt}
+  \@theppart~{#1}%
 }
 
 % The problem recomendation environment
@@ -95,7 +95,7 @@
 \def\@therecommendation{\textit{\bfseries \recommendationname:}}
 
 \newenvironment{recommendation}[1]{
-  \par\bigskip%
+  \par\bigskip
   \@therecommendation~{#1}%
 }
 
@@ -109,10 +109,22 @@
 \def\@thesolution{\textit{\bfseries \solutionname}}
 
 \newenvironment{solution}[1]{
-  \par\bigskip%
+  \par\bigskip
   \@thesolution\par%
-  #1%
+  {#1}%
 }
+
+% The problem solution part environment
+\newcounter{spart}[problem]
+\renewcommand{\thespart}{\theproblem\alph{spart}}
+\def\@thespart{\alph{spart})}
+
+\newenvironment{spart}[1]{
+  \refstepcounter{spart}
+  % \setlength{\leftskip}{10pt}
+  \@thespart~{#1}%
+}
+
 
 %% make title customization ---------------------------------------------------
 % Logo: Optional

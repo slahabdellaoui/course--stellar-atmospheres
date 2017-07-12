@@ -1,0 +1,296 @@
+%% Preámbulo
+%% ----------------------------------------------------------------------------
+\documentclass[10pt,spanish,a4paper]{practice}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{luximono}
+\usepackage{textcomp}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{charter}
+
+%% Settings
+%% ----------------------------------------------------------------------------
+% hyperref
+\hypersetup{
+    pdftitle={Física de Plasmas: Atm\'{o}sferas Estelares - Examen Final},
+    pdfauthor={Mart\'{i}n Josemar\'{i}a Vuelta Rojas},
+    pdfpagelayout=OneColumn,
+    pdfnewwindow=true,
+    pdfdisplaydoctitle=true,
+    pdfstartview=XYZ,
+    plainpages=false,
+    unicode=true,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=3,
+    breaklinks=true,
+    colorlinks=true,
+    pdfborder={0 0 0}
+}
+
+% graphicx
+\graphicspath{{resources/img/}}
+
+% caption
+\captionsetup{
+    labelfont=bf,
+    textfont=it,
+    justification=centering,
+    width=0.9\textwidth,
+}
+
+%% Definicion de comandos
+%% ----------------------------------------------------------------------------
+\makeatletter
+
+%% Fuente de ancho fijo
+\renewcommand{\ttdefault}{lmtt}
+\renewcommand{\spanishtablename}{Tabla}
+
+\makeatother
+
+%% Documento
+%% ----------------------------------------------------------------------------
+\begin{document}
+    %% Titulo, autor y resumen --------------------------------------------------
+    \logo{unmsm.png}
+    \university{
+        Universidad Nacional Mayor de San Marcos\\
+        {
+            \scriptsize{
+                \textit{
+                    \textup{
+                        Universidad del Perú, Decana de América}
+                    }
+            }
+        }\\
+        {\medskip}
+        {
+            \footnotesize {Facultad de Ciencias Físicas}
+        }
+    }
+    \course{Física de Plasmas: Atmósferas Estelares}
+    \title{Examen Final}
+    \maketitle
+
+    \begin{problem}
+        Suponiendo que el campo de radiación de una atmósfera no gris se descompone en dos corrientes, una saliente $I_{\nu}^{+}\left(\tau_{\nu}\right)$ para $\mu > 0$ y una entrante $I_{\nu}^{-}\left(\tau_{\nu}\right)$ para $\mu < 0$.
+
+        $$
+            \pm\mu\frac{d I_{\nu}^{\pm}\left(\tau_{\nu}\right)}{d \tau_{\nu}} = I_{\nu}^{\pm}\left(\tau_{\nu}\right) - S_{\nu}
+        $$
+
+        Obtener la ecuación diferencial de segundo orden que permita calcular la Intensidad media en función de la opacidad y la función fuente.
+
+        \begin{solution}
+            Escribimos las ecuación de transporte para cada una de las componnetes de $I_\nu(\tau_\nu)$
+
+            \begin{align*}
+                \mu \frac{d I_{\nu}^{+}\left(\tau_{\nu}\right)}{d\tau_{\nu}} &= I_{\nu}^{+}\left(\tau_{\nu}\right) - S_{\nu} \\
+                - \mu \frac{d I_{\nu}^{-}\left(\tau_{\nu}\right)}{d \tau_{\nu}} &= I_{\nu}^{-}\left(\tau_{\nu}\right) - S_{\nu}
+            \end{align*}
+
+            Sumando y restando ambas ecuaciones obtenemos
+
+            \begin{align*}
+                \mu \frac{d}{d\tau_{\nu}}\left[\frac{I_{\nu}^{+}\left(\tau_{\nu}\right) - I_{\nu}^{-}\left(\tau_{\nu}\right)}{2}\right] &=  \left[\frac{I_{\nu}^{+}\left(\tau_{\nu}\right) + I_{\nu}^{-}\left(\tau_{\nu}\right)}{2}\right] - S_{\nu} \\
+                \mu \frac{d}{d\tau_{\nu}}\left[\frac{I_{\nu}^{+}\left(\tau_{\nu}\right) + I_{\nu}^{-}\left(\tau_{\nu}\right)}{2}\right] &=  \left[\frac{I_{\nu}^{+}\left(\tau_{\nu}\right) - I_{\nu}^{-}\left(\tau_{\nu}\right)}{2}\right]
+            \end{align*}
+
+            Haciendo
+
+            \begin{align*}
+                \alpha_{\nu}(\tau) &=  \frac{I_{\nu}^{+}\left(\tau_{\nu}\right) + I_{\nu}^{-}\left(\tau_{\nu}\right)}{2}\\
+                \beta_{\nu}(\tau) &= \frac{I_{\nu}^{+}\left(\tau_{\nu}\right) - I_{\nu}^{-}\left(\tau_{\nu}\right)}{2}
+            \end{align*}
+
+            las ecuaciones obtenidas anteriormente se reducen a
+
+            \begin{align*}
+                \mu \frac{d\beta_{\nu}\left(\tau_\nu\right)}{d\tau_{\nu}} &= \alpha_{\nu}\left(\tau_\nu\right) - S_{\nu} \\
+                \mu \frac{d\alpha_{\nu}\left(\tau_\nu\right)}{d\tau_{\nu}} &= \beta_{\nu}\left(\tau_\nu\right)
+            \end{align*}
+
+            Reemplazando el valor de $\beta_{\nu}$ obtenemos:
+
+            \begin{equation*}
+                \mu^2 \frac{{d^2}\alpha_{\nu}(\tau_\nu)}{d{\tau_{\nu}^2}} = \alpha_{\nu}(\tau_\nu) - S_{\nu}
+            \end{equation*}
+
+            Si reemplazamos $I_\nu^{+}$ y $I_\nu^{-}$ en la definición de $J_\nu$
+
+            \begin{align*}
+                J_{\nu}(\tau) &= \frac{1}{4\pi}\int_{\Omega} I_\nu d{\Omega} \\
+                  &= \frac{1}{2}\int_{-1}^{1} I_\nu\left(\tau_\nu\right)d{\mu} \\
+                  &= \frac{1}{2}\left[\int_{-1}^{0} I_\nu^{-}\left(\tau_\nu\right)d{\mu} + \int_{0}^{1} I_\nu^{+}\left(\tau_\nu\right)d{\mu} \right] \\
+                  &= \frac{1}{2}\left[I_\nu^{-}\left(\tau_\nu\right) \int_{-1}^{0} d{\mu} + I_\nu^{+}\left(\tau_\nu\right) \int_{0}^{1} d{\mu} \right] \\
+                  &= \frac{1}{2}\left[I_\nu^{-}\left(\tau_\nu\right) \int_{0}^{1} d{\mu} + I_\nu^{+}\left(\tau_\nu\right) \int_{0}^{1} d{\mu} \right] \\
+                  &= \left[\frac{I_\nu^{-}\left(\tau_\nu\right)  + I_\nu^{+}\left(\tau_\nu\right)}{2} \right] \int_{0}^{1} d{\mu} \\
+                  &= \alpha_\nu\left(\tau_\nu\right)
+            \end{align*}
+
+            Reemplazando en la ecuación para $\alpha_\nu$ obtenemos
+
+            \begin{equation*}
+                \mu^2 \frac{{d^2}J_{\nu}(\tau)}{d{\tau_{\nu}^2}} = J_{\nu}(\tau) - S_{\nu}
+            \end{equation*}
+
+        \end{solution}
+    \end{problem}
+
+    \begin{problem}
+        Si la intensidad específica de radiación saliente de una atmósfera se  expresa de la siguiente manera
+
+        $$
+            I\left(0, \mu\right) = A + B \mu + C \mu^2.
+        $$
+
+        Determine la forma de la funcion fuente $S=S\left(\tau\right)$ empleando la relación de Eddingtong-Barbier.
+
+        \begin{solution}
+            Del caso general, si
+
+            \begin{equation*}
+                S_\nu(\tau_\nu) = \sum_i a_{\lambda, i} \tau_{\lambda}^{i}
+            \end{equation*}
+
+            entonces
+
+            \begin{equation*}
+                I_\nu(0,\mu) = \sum_i A_{i} \mu^{i} \qquad \mathrm{con} \qquad A_{i} = a_{\lambda, i} \cdot i!
+            \end{equation*}
+
+            De la expresión dada en el problema se tiene que
+
+            \begin{equation*}
+                S_\nu\left(\tau_\nu\right) = A + B \tau + \frac{C}{2} \tau^2.
+            \end{equation*}
+        \end{solution}
+    \end{problem}
+
+    \begin{problem}
+        En una atmósfera gris y en equilibrio radiativo, en la que se suponela función fuente está dada por la función de Planck $S_\nu = B_\nu\left(T\right)$. Si la intensidad media del campo de radiación se expresa como
+
+        $$
+            J_{\nu}\left(\tau\right) = \left[1 - \frac{1}{2}E_{2}\left(\tau\right)\right]B_{\nu}\left(\tau=\tfrac{2}{3}\right)
+        $$
+
+        \begin{ppart}
+            Determine la temperatura $T(0)$ en función de la temperatura $T(\tau=\frac{2}{3})$.
+        \end{ppart}
+
+        \begin{ppart}
+            ¿A qué corresponde la temperatura $T = T(\tau=\frac{2}{3})$?
+        \end{ppart}
+
+        \begin{ppart}
+            Empleando la relación de Barbier, determine el flujo astrfísico integrado en todas las longitudes de onda.
+        \end{ppart}
+
+        \begin{solution}{}
+            \begin{spart}
+                De la aproximación a primer orden de $J_\nu\left(\tau\right)$ tenemos que
+
+                \begin{align*}
+                    J_\nu\left(\tau\right) &= \Lambda_\nu\left[S_\nu\right] \\
+                    &= a_{0}\Lambda_\nu\left[1\right] + a_{0}\Lambda_\nu\left[t\right] + \ldots \\
+                    &\approx a_{0}\Lambda_\nu\left[1\right] \\
+                    &\approx a_{0}\left[1 - \frac{1}{2}E_2\left(\tau\right)\right]
+                \end{align*}
+
+                De donde se obtiene $a_0 = B_{\nu}\left(\tau=\frac{2}{3}\right)$.
+
+            \end{spart}
+        \end{solution}
+    \end{problem}
+
+    \begin{problem}
+        Derive la ecuación
+
+        $$
+            J\left(\tau\right) = \frac{3}{4}F\left(\tau + Q + \sum_{\alpha=1}^{n-1}L_{\alpha}\mathrm{e}^{-k_{\alpha}\tau}\right)
+        $$
+
+        \begin{solution}
+            De la aproximación a grandes profundidades ($\tau \gg 1$) se tiene que $J_\nu\left(\tau_\nu\right) \approx S_\nu\left(\tau_\nu\right)$. Reemplazado esta relación en la ecuación de transferencia radiativa y expresando $J_\nu\left(\tau_\nu\right)$ en función de $I$ tenemos
+
+            \begin{equation*}
+                \mu\frac{d I_{\nu}\left(\tau_{\nu}, \mu\right)}{d \tau_{\nu}} = I_{\nu}\left(\tau_{\nu}, \mu\right) - \frac{1}{2}\int_{-1}^{+1}I_{\nu}\left(\tau_{\nu}, \mu\right)d\mu.
+            \end{equation*}
+
+            Discretizando la integral del segundo término la ecuación anterior se convierte en
+
+            \begin{equation*}
+                \mu\frac{d I_{\nu}\left(\tau_{\nu}, \mu\right)}{d \tau_{\nu}} = I_{\nu}\left(\tau_{\nu}, \mu\right) - \frac{1}{2}\sum_{j=1}^{n}I_{\nu}\left(\tau_{\nu}, \mu_j\right)a_j.
+            \end{equation*}
+
+            Donde $a_j$ son los pesos de los valores de la función $I_{\nu}\left(\tau_{\nu}, \mu\right)$ en $\mu_j$. Si la ecuación obtenida la evaluamos únicamente en los valores $\mu_j$ empleados en la cuadratura de la integral obtenemos un sistema de $n$ ecuaciones homogeneas.
+
+            \begin{equation*}
+                \mu\frac{d I_{\nu}\left(\tau_{\nu}, \mu_i\right)}{d \tau_{\nu}} = I_{\nu}\left(\tau_{\nu}, \mu_i\right) - \frac{1}{2}\sum_{j=1}^{n}I_{\nu}\left(\tau_{\nu}, \mu_j\right)a_j.
+            \end{equation*}
+
+            Modelando una solución de la forma
+
+            \begin{equation*}
+                I_{\nu}\left(\tau_{\nu}, \mu_j\right) =g_i e^{-k\tau}
+            \end{equation*}
+
+            Tenemos que esta solo cumplirá con el sistema solo cuando
+
+            \begin{equation*}
+                \frac{S_\nu(\tau_\nu)}{I_\nu(0, 1)} \approx \frac{B_\nu[T(\tau_\nu)]}{I_\nu(0, 1)} = \sum_{i=0}^{n}\beta_i\tau^i = \sum_{i=0}^{n}\beta_i\left(\frac{\tau}{\mu}\right)^i\mu^{i}
+            \end{equation*}
+
+            Con $k$ satisfaciendo la ecuación
+
+            \begin{equation*}
+                1 = \sum_{j=0}^{\frac{n}{2}}\frac{a_j}{1 - \mu k^2} \qquad ; \qquad \mu_j > 0
+            \end{equation*}
+
+            Estas dos últimas ecuaciones proveen $n-2$ constantes de integración $L_\alpha$ para cada valor de $k$ distitno de 0 y denotado pr $k_\alpha$.
+
+            Para el caso $k=0$, podemos modelar una solución, similar a la aproximación de Eddington, de la forma
+
+            \begin{equation*}
+                I_{\nu}\left(\tau_{\nu}, \mu_j\right) = b(\tau + q_i)
+            \end{equation*}
+
+            Esta expresion de $I_{\nu}$ satisface la ecuación cuando
+
+            \begin{equation*}
+                q_i = \mu_i + Q
+            \end{equation*}
+
+            Donde $Q$ es una contante. Los productos $b\tau$ y $bQ$ son las constantes restantes para resolver el sistema en el caso $k=0$, de modo que
+
+            \begin{equation*}
+                I_{\nu}\left(\tau_{\nu}, \mu_i\right) = b \left[\sum_{\alpha=1}^{n-1}\frac{L_\alpha e^{-k_\alpha\tau}}{1 + \mu_i k_\alpha} + \mu_i + \tau + Q\right]
+            \end{equation*}
+
+            Calculando el valor de $J$ obtenemos que
+
+            \begin{align*}
+                J_\nu\left(\tau_\nu\right) &= \frac{1}{2}\sum_{i=1}^{n}I_{\nu}\left(\tau_{\nu}, \mu_i\right)a_i \\
+                  &= b \left[\tau + Q + \sum_{\alpha=1}^{n-1}L_\alpha e^{-k_\alpha\tau}\right]
+            \end{align*}
+
+            De igual forma, el valor de $F$ Viene dado por
+
+            \begin{align*}
+                F_\nu\left(\tau_\nu\right) &= \frac{4b}{3}
+            \end{align*}
+
+            De donde despejamos $b$ y obtenemos $J$ como
+
+            \begin{equation*}
+                J_{\nu}\left(\tau_{\nu}, \mu_j\right) = \frac{3}{4} F \left[\tau + Q + \sum_{\alpha=1}^{n-1}L_\alpha e^{-k_\alpha\tau}\right]
+            \end{equation*}
+        \end{solution}
+    \end{problem}
+\end{document}

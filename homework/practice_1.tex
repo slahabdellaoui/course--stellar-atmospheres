@@ -9,6 +9,9 @@
 \usepackage{luximono}
 \usepackage{textcomp}
 \usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{ragged2e}
 \usepackage{amstext}
 \usepackage{caption}
 \usepackage{charter}
@@ -44,6 +47,9 @@
     width=0.9\textwidth,
 }
 
+% tabularx rule width
+\setlength{\arrayrulewidth}{1.5pt}
+
 %% Definicion de comandos
 %% ----------------------------------------------------------------------------
 \makeatletter
@@ -75,42 +81,7 @@
     \maketitle
 
     \begin{problem}\label{prob:1}
-        Determine la \emph{longitud de onda equivalente} para cada una de las curvas de sensibilidad dadas en la tabla \ref{table:1}.
-
-        \begin{table}[h!]
-            \centering
-            \begin{tabular}{ c | c | c | c | c | c }
-                $\lambda(\mu)$  & $U_\lambda$  & $B_\lambda$  & $V_\lambda$  & $O_{\textit{d\'ia}}$  & $O_{\textit{noche}}$ \\
-                &  &  &  &  &  \\[-0.8em]\hline
-                &  &  &  &  &  \\[-0.8em]
-                0.28  & 0.00  &  &  &  &  \\
-                0.30  & 0.13  &  &  &  &  \\
-                0.32  & 0.60  &  &  &  &  \\
-                0.34  & 0.92  &  &  &  &  \\
-                0.36  & 1.00  & 0.00  &  &  &  \\
-                0.38  & 0.72  & 0.13  &  &  & 0.00 \\
-                0.40  & 0.09  & 0.92  &  &  & 0.02 \\
-                0.42  & 0.00  & 1.00  &  & 0.00  & 0.08 \\
-                0.44  &  & 0.92  &  & 0.02  & 0.21 \\
-                0.46  &  & 0.76  & 0.00  & 0.06  & 0.41 \\
-                0.48  &  & 0.56  & 0.01  & 0.14  & 0.65 \\
-                0.50  &  & 0.39  & 0.36  & 0.32  & 0.90 \\
-                0.52  &  & 0.20  & 0.91  & 0.71  & 0.96 \\
-                0.54  &  & 0.07  & 0.98  & 0.95  & 0.68 \\
-                0.56  &  & 0.00  & 0.80  & 1.00  & 0.35 \\
-                0.58  &  &  & 0.59  & 0.87  & 0.14 \\
-                0.60  &  &  & 0.39  & 0.63  & 0.05 \\
-                0.62  &  &  & 0.22  & 0.38  & 0.02 \\
-                0.64  &  &  & 0.09  & 0.18  & 0.01 \\
-                0.66  &  &  & 0.03  & 0.06  & 0.00 \\
-                0.68  &  &  & 0.01  & 0.02  &  \\
-                0.70  &  &  & 0.00  & 0.00  &  \\
-                \hline
-            \end{tabular}
-            \caption{
-                Curvas de sensibilidad de los filtros $U$, $B$ y $V$ del sistema fotométrico $UBV$, y del ojo humano para el día y la noche.
-            }\label{table:1}
-        \end{table}
+        Determine la \emph{longitud de onda equivalente} para cada una de las curvas de sensibilidad dadas en la tabla \ref{table:p1_curvas_sensibilidad}.
     \end{problem}
 
     \begin{problem}\label{prob:2}
@@ -146,54 +117,30 @@
     \begin{problem}\label{prob:6}
         Usando las tablas adjuntas (Referencia del COX) y considerando los tipos espectrales \emph{O9}, \emph{B0}, \emph{B2}, \emph{B5}, \emph{A0}, \emph{A5}, \emph{F0}, \emph{F5}, \emph{G0}, \emph{G5}, \emph{K0}, \emph{K5} y \emph{M0}.
 
-        \begin{problempart}\label{prob:6:a}
+        \begin{ppart}\label{prob:6:a}
             Graficar $M_V$ vs. $\left(B-V\right)_{0}$ para cada clase de lumninosidad V, III y I.
-        \end{problempart}
+        \end{ppart}
 
-        \begin{problempart}\label{prob:6:b}
+        \begin{ppart}\label{prob:6:b}
             Calcular la temperatura de color $T_{BV}$ para los tipos espectrales de la secuencia principal.
-        \end{problempart}
+        \end{ppart}
 
-        \begin{problempart}\label{prob:6:c}
-            Usando los datos de la tabla \ref{table:2} de \emph{colores intrínsecos} $\left(U-B\right)_O$, calcular las temperaturas de color $T_{UB}$.
-        \end{problempart}
+        \begin{ppart}\label{prob:6:c}
+            Usando los datos de la tabla \ref{table:p6_color_int_UB} de \emph{colores intrínsecos} $\left(U-B\right)_O$, calcular las temperaturas de color $T_{UB}$.
+        \end{ppart}
 
-        \begin{table}[h!]
-            \centering
-            \begin{tabular}{c | c}
-                T. Sp.  & $\left(U-B\right)_{o}$ \\
-                &  \\[-0.8em]\hline
-                &  \\[-0.8em]
-                BO V  & -1.06 \\
-                B5 V  & -0.55 \\
-                A0 V  & -0.02 \\
-                A5 V  &  0.10 \\
-                F0 V  &  0.07 \\
-                F5 V  &  0.03 \\
-                G0 V  &  0.05 \\
-                G5 V  &  0.19 \\
-                K0 V  &  0.47 \\
-                K5 V  &  1.10 \\
-                M0 V  &  1.28 \\
-                \hline
-            \end{tabular}
-            \caption{
-                Colores intrínsecos $\left(U-B\right)_O$
-            }\label{table:2}
-        \end{table}
-
-        \begin{problempart}\label{prob:6:d}
+        \begin{ppart}\label{prob:6:d}
             Comparar los tipos de colores $T_{UV}$ y $T_{VB}$ de los tipos espectrales dados en \ref{prob:6:c}.
-        \end{problempart}
+        \end{ppart}
 
-        \begin{problempart}\label{prob:6:e}
+        \begin{ppart}\label{prob:6:e}
             Comparar las temperaturas de color $T_{BV}$ y $T_{UV}$ de los espectrales dados en \ref{prob:6:b} con las temperaturas espectrales de la tabla adjuntada.
 
             \begin{itemize}
                 \item ¿Cuál de las tempraturas de color parece aproximarse mejor desde un punto de vista cuantitativo a la temperatura afectiva?
                 \item ¿Cúal de las tempraturas de color parece aproximarse mejor desde un punto de vista cualitativo a la temperatura efectiva?
             \end{itemize}
-        \end{problempart}
+        \end{ppart}
     \end{problem}
 
     \begin{problem}\label{prob:7}
@@ -201,31 +148,32 @@
     \end{problem}
 
     \begin{problem}\label{prob:8}
-        Para los tipos espectrales de la tabla \ref{table:2}
+        Para los tipos espectrales de la tabla \ref{table:p6_color_int_UB}
 
-            \begin{problempart}\label{prob:8:a}
+            \begin{ppart}\label{prob:8:a}
                 Calcular el coeficiente $Q$.
-            \end{problempart}
+            \end{ppart}
 
-            \begin{problempart}\label{prob:8:b}
+            \begin{ppart}\label{prob:8:b}
                 Calcular Q suponiendo $T_{BV}$ = $T_{UB}$ = $T_{EH}$.
-            \end{problempart}
+            \end{ppart}
 
-            \begin{problempart}\label{prob:8:c}
+            \begin{ppart}\label{prob:8:c}
                 Calcular Q usando sólo $T_{BV}$.
-            \end{problempart}
+            \end{ppart}
 
-            \begin{problempart}\label{prob:8:d}
+            \begin{ppart}\label{prob:8:d}
                 Calcular Q usando sólo $T_{UB}$.
-            \end{problempart}
+            \end{ppart}
     \end{problem}
 
+    \newpage
     \begin{problem}\label{prob:9}
         Calcular un diagrama Log L9L0 vs Log $T_{EH}$ = para log $\left(RIRO\right)$ = -3, -2, -1, 0, +1, +2.
 
-            \begin{problempart}\label{prob:9:a}
+            \begin{ppart}\label{prob:9:a}
                 Mostrar que la correccion bolometricas enre magnitudes NO SE QUE DICE  es igual a la correccion bolometrica entre magnitudes absolutas.
-            \end{problempart}
+            \end{ppart}
     \end{problem}
 
     \begin{problem}\label{prob:10}
@@ -239,7 +187,7 @@
     \end{problem}
 
     \begin{problem}\label{prob:12}
-        \begin{problempart}\label{prob:12:a}
+        \begin{ppart}\label{prob:12:a}
             Mostrar que el gradiente de color de una radiacion de cuerpo negro esta dado por
             $$
                 \Phi = \frac{c_2}{T}\left(1 - \mathrm{e}^{-\frac{c_2}{\lambda T}}\right)
@@ -248,15 +196,15 @@
             $$
                 c_2 = \frac{hc}{k} \approx 1.43883\ \mathrm{cm \cdot K}
             $$
-        \end{problempart}
+        \end{ppart}
 
-        \begin{problempart}\label{prob:12:b}
+        \begin{ppart}\label{prob:12:b}
             ¿En que region $\Phi = \frac{c_2}{\lambda T}$?
-        \end{problempart}
+        \end{ppart}
 
-        \begin{problempart}\label{prob:12:c}
+        \begin{ppart}\label{prob:12:c}
             Calcular $\Phi$ usando $\lambda = \frac{1}{2}\left(\lambda_B + \lambda_V\right)_{eq}$ y $T = T_{BV}$ para los tipos espectrales de \ref{prob:6:d}.
-        \end{problempart}
+        \end{ppart}
     \end{problem}
 
     \begin{problem}\label{prob:13}
@@ -266,9 +214,9 @@
                 \item $M_{V}$ en $T_{BV}$.
             \end{itemize}
 
-            Para los tipos espectrales de la tabla \ref{table:2} para las claves de limunosidad $V$, $IV$, $III$, $II$, $I_{b}$, $I_{a}$.
+            Para los tipos espectrales de la tabla \ref{table:p6_color_int_UB} para las claves de limunosidad $V$, $IV$, $III$, $II$, $I_{b}$, $I_{a}$.
 
-            Usar para $V$, $IV$, $III$ los $\left(B-V\right)$ de las clase de luminosidad $V$. Para los supergigantes $III$, $I_{b}$, $I_{a}$ usar los datos de la tabla \ref{table:3}.
+            Usar para $V$, $IV$, $III$ los $\left(B-V\right)$ de las clase de luminosidad $V$. Para los supergigantes $III$, $I_{b}$, $I_{a}$ usar los datos de la tabla \ref{table:p13_color_int_UB}.
     \end{problem}
 
     \begin{problem}\label{prob:14}
@@ -276,16 +224,331 @@
     \end{problem}
 
     \begin{problem}\label{prob:15}
-        \begin{problempart}\label{prob:15:B}
+        \begin{ppart}\label{prob:15:B}
             Graficar $\log\left(\frac{L}{L_\odot}\right)$ vs $T_{BV}$ e interpretar, usando para ello el diagrama calculado en el ejecrcicio \ref{prob:4}.
-        \end{problempart}
+        \end{ppart}
+    \end{problem}
 
-        \begin{table}[h!]
+    \newpage
+        \begin{table}
             \centering
-            \begin{tabular}{c | c}
-                T. Sp.  & $\left(B-V\right)_{o}$ \\\\
-                  &  \\[-0.8em]\hline
-                  &  \\[-0.8em]
+            \caption{
+                Curvas de sensibilidad de los filtros $U$, $B$ y $V$ del sistema fotométrico $UBV$, y del ojo humano para el día y la noche. \\ (Problema \ref{prob:1})
+            }\label{table:p1_curvas_sensibilidad}
+            \begin{tabularx}{\textwidth}{ *{6}{>{\Centering}X} }
+                \hline
+                $\lambda(\mu)$  & $U_\lambda$  & $B_\lambda$  & $V_\lambda$  & $O_{\textit{d\'ia}}$  & $O_{\textit{noche}}$
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.6ex}\rule[-1.2ex]{0pt}{0pt}\\
+                & & & & & \\[-1.05em]\hline
+                & & & & & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                0.28  & 0.00  & -     & -     & -     & -    \\
+                0.30  & 0.13  & -     & -     & -     & -    \\
+                0.32  & 0.60  & -     & -     & -     & -    \\
+                0.34  & 0.92  & -     & -     & -     & -    \\
+                0.36  & 1.00  & 0.00  & -     & -     & -    \\
+                0.38  & 0.72  & 0.13  & -     & -     & 0.00 \\
+                0.40  & 0.09  & 0.92  & -     & -     & 0.02 \\
+                0.42  & 0.00  & 1.00  & -     & 0.00  & 0.08 \\
+                0.44  & -     & 0.92  & -     & 0.02  & 0.21 \\
+                0.46  & -     & 0.76  & 0.00  & 0.06  & 0.41 \\
+                0.48  & -     & 0.56  & 0.01  & 0.14  & 0.65 \\
+                0.50  & -     & 0.39  & 0.36  & 0.32  & 0.90 \\
+                0.52  & -     & 0.20  & 0.91  & 0.71  & 0.96 \\
+                0.54  & -     & 0.07  & 0.98  & 0.95  & 0.68 \\
+                0.56  & -     & 0.00  & 0.80  & 1.00  & 0.35 \\
+                0.58  & -     & -     & 0.59  & 0.87  & 0.14 \\
+                0.60  & -     & -     & 0.39  & 0.63  & 0.05 \\
+                0.62  & -     & -     & 0.22  & 0.38  & 0.02 \\
+                0.64  & -     & -     & 0.09  & 0.18  & 0.01 \\
+                0.66  & -     & -     & 0.03  & 0.06  & 0.00 \\
+                0.68  & -     & -     & 0.01  & 0.02  & -    \\
+                0.70  & -     & -     & 0.00  & 0.00  & -    \\
+                \hline
+            \end{tabularx}
+        \end{table}
+
+        \begin{table}
+            \centering
+            \caption{
+                Magnitudes Visuales Absolutas \\ (Problema \ref{prob:6})
+            }\label{table:p6_cox_table2}
+            \begin{tabularx}{\textwidth}{ *{7}{>{\Centering}X} }
+                \hline
+                T. Sp.  &  V  &  IV  &  III  &  II  &  Ib  &  Ia
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.6ex}\rule[-1.2ex]{0pt}{0pt}\\
+                & & & & & & \\[-1.05em]\hline
+                & & & & & & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                O9  &  -4.8   &  -5.4  &  -6.0  &  -     &  -     &  -    \\
+                B0  &  -4.1   &  -4.6  &  -5.0  &  -5.6  &  -6.2  &  -7.0 \\
+                B1  &  -3.5   &  -3.9  &  -4.4  &  -5.1  &  -6.0  &  -7.0 \\
+                B2  &  -2.5   &  -3.0  &  -3.6  &  -4.4  &  -5.9  &  -7.0 \\
+                B3  &  -1.7   &  -2.3  &  -2.9  &  -3.9  &  -5.8  &  -7.0 \\
+                B5  &  -1.1   &  -1.6  &  -2.2  &  -3.7  &  -5.7  &  -7.0 \\
+                B7  &  -0.6   &  -1.0  &  -1.6  &  -3.6  &  -5.6  &  -7.0 \\
+                B8  &  -0.2   &  -0.6  &  -1.2  &  -3.4  &  -5.5  &  -7.0 \\
+                B9  &  +0.2   &  -0.3  &  -0.8  &  -3.1  &  -5.4  &  -7.0 \\
+                A0  &  +0.6   &  +0.0  &  -0.6  &  -2.8  &  -4.9  &  -7.0 \\
+                A1  &  +1.2   &  +0.3  &  -0.4  &  -2.6  &  -4.8  &  -7.0 \\
+                A3  &  +1.7   &  +0.9  &  +0.0  &  -2.3  &  -4.6  &  -7.0 \\
+                A5  &  +2.1   &  +1.2  &  +0.3  &  -2.1  &  -4.5  &  -7.0 \\
+                A7  &  +2.4   &  +1.5  &  +0.5  &  -2.0  &  -4.5  &  -7.0 \\
+                F0  &  +2.6   &  +1.7  &  +0.6  &  -2.0  &  -4.5  &  -7.0 \\
+                F2  &  +3.0   &  +1.9  &  +0.6  &  -2.0  &  -4.5  &  -7.0 \\
+                F5  &  +3.4   &  +2.1  &  +0.7  &  -2.0  &  -4.5  &  -7.0 \\
+                F6  &  +3.7   &  +2.2  &  +0.7  &  -2.0  &  -4.5  &  -7.0 \\
+                F8  &  +4.0   &  +2.4  &  +0.6  &  -2.0  &  -4.5  &  -7.0 \\
+                G0  &  +4.4   &  +2.8  &  +0.6  &  -2.0  &  -4.5  &  -7.0 \\
+                G2  &  +4.7   &  +3.0  &  +0.4  &  -2.1  &  -4.5  &  -7.0 \\
+                G5  &  +5.2   &  +3.2  &  +0.3  &  -2.1  &  -4.5  &  -7.0 \\
+                G8  &  +5.6   &  +3.2  &  +0.3  &  -2.1  &  -4.5  &  -7.0 \\
+                K0  &  +5.9   &  +3.2  &  +0.2  &  -2.1  &  -4.5  &  -7.0 \\
+                K2  &  +6.3   &  -     &  -0.1  &  -2.2  &  -4.5  &  -7.0 \\
+                K3  &  +6.9   &  -     &  -0.2  &  -2.3  &  -4.5  &  -7.0 \\
+                K5  &  +8.0   &  -     &  -0.3  &  -2.3  &  -4.5  &  -7.0 \\
+                M0  &  +9.2   &  -     &  -0.4  &  -2.4  &  -4.5  &  -7.0 \\
+                M1  &  +9.7   &  -     &  -0.5  &  -2.4  &  -4.5  &  -7.0 \\
+                M2  &  +10.1  &  -     &  -0.5  &  -2.4  &  -4.5  &  -7.0 \\
+                M3  &  +10.6  &  -     &  -0.5  &  -2.4  &  -4.5  &  -    \\
+                M4  &  +11.3  &  -     &  -0.5  &  -2.4  &  -4.5  &  -    \\
+                M5  &  +12.3  &  -     &  -     &  -     &  -     &  -    \\
+                M6  &  +13.4  &  -     &  -     &  -     &  -     &  -    \\
+                \hline
+                \multicolumn{7}{l}{\footnotesize *Jhon P. Cox, R. Thomas Giuli, \emph{Stellar Structure, Physical}}\\
+                \multicolumn{7}{l}{\footnotesize \emph{Principles}, p. 10)}
+            \end{tabularx}
+        \end{table}
+
+        \begin{table}
+            \centering
+            \caption{
+                Temperatura efectiva para tipos MK \\ (Problema \ref{prob:6})
+            }\label{table:p6_cox_table3}
+            \begin{tabularx}{\textwidth}{ *{7}{>{\Centering}X} }
+                \hline
+                T. Sp.  &  \multicolumn{6}{c}{$T_{eff}(K)$}
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.0ex}\rule[-1.0ex]{0pt}{0pt}\\
+                & & & & & & \\[-1.1em]\hline
+                & & & & & & \\[-1.1em]
+                %!-> END monkeypatch to manage spacings in table header
+                B0    & \multicolumn{6}{c}{27,000} \\
+                B1    & \multicolumn{6}{c}{23,000} \\
+                B2    & \multicolumn{6}{c}{20,000} \\
+                B3    & \multicolumn{6}{c}{18,000} \\
+                B5    & \multicolumn{6}{c}{16,000} \\
+                B6.5  & \multicolumn{6}{c}{14,000} \\
+                B8    & \multicolumn{6}{c}{12,500} \\
+                B9    & \multicolumn{6}{c}{11,200} \\
+                A0    & \multicolumn{6}{c}{10,400} \\
+                A1    & \multicolumn{6}{c}{ 9,700} \\
+                A2    & \multicolumn{6}{c}{ 9,100} \\
+                A3    & \multicolumn{6}{c}{ 8,500} \\
+                A5    & \multicolumn{6}{c}{ 8,200} \\
+                A7    & \multicolumn{6}{c}{ 7,600} \\
+                F0    & \multicolumn{6}{c}{ 7,200} \\[0.25em]
+                \hline
+                    &    V   &    IV  &  III   &  II    &  Ib    & Ia \\\hline
+                F2  &  6900  &  6830  &  6800  &  6700  &  6600  &  \\
+                F5  &  6700  &  6600  &  6500  &  6350  &  6200  &  \\
+                F6  &  6500  &  6370  &  6250  &  6020  &  5800  &  \\
+                F8  &  6200  &  6050  &  5900  &  5720  &  5450  &  \\
+                G0  &  6000  &  5720  &  5500  &  5350  &  5050  &  \\
+                G2  &  5740  &  5420  &  5100  &  4950  &  4750  &  \\
+                G5  &  5520  &  5150  &  4800  &  4650  &  4500  &  \\
+                G8  &  5320  &  4950  &  4600  &  4450  &  4300  &  \\
+                K0  &  5120  &  4750  &  4400  &  4350  &  4100  &  \\
+                K1  &  4920  &  4550  &  4150  &  4000  &  3850  &  \\
+                K2  &  4760  &  4400  &  3970  &  3860  &  3750  &  \\
+                K3  &  4600  &  -     &  3820  &  3720  &  3600  &  \\
+                K5  &  4350  &  -     &  3700  &  3600  &  3500  &  \\
+                K6  &  4000  &  -     &  -     &  -     &  -     &  \\
+                M0  &  3750  &  -     &  3500  &  3400  &  3300  &  \\
+                M1  &  3600  &  -     &  3300  &  3150  &  3050  &  \\
+                M2  &  3350  &  -     &  3100  &  2050  &  -     &  \\
+                M3  &  3100  &  -     &  2900  &  -     &  -     &  \\
+                M4  &  -     &  -     &  2700  &  -     &  -     &  \\
+                \hline
+                \multicolumn{7}{l}{\footnotesize *Jhon P. Cox, R. Thomas Giuli, \emph{Stellar Structure, Physical Principles}, p. 11)}
+            \end{tabularx}
+        \end{table}
+
+        \begin{table}
+            \centering
+            \caption{
+                Colores intrínsecos y correción bolométrica \\ (Problema \ref{prob:6})
+            }\label{table:p6_cox_table4}
+            \begin{tabularx}{\textwidth}{ *{6}{>{\Centering}X} }
+                \hline
+                \multirow{3}{*}{T. Sp.} & \multicolumn{3}{c}{$B-V$}  & \multicolumn{2}{c}{$B.C.$}
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.0ex}\rule[-1.0ex]{0pt}{0pt}\\
+                & & & & & \\[-1.1em]\cline{2-6}
+                & & & & & \\[-1.1em]
+                %!-> END monkeypatch to manage spacings in table header
+                & \multicolumn{3}{c}{Clase de Luminosidad}  & \multicolumn{2}{c}{Classe de Luminosidad}
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.0ex}\rule[-1.0ex]{0pt}{0pt}\\
+                & & & & & \\[-1.1em]\cline{2-6}
+                & & & & & \\[-1.1em]
+                %!-> END monkeypatch to manage spacings in table header
+                & $V$ & $III$ & $I$ &$V$ & $III$ \\\hline
+                05   & (-0.32) & (-0.32) & (-0.32) &  [-4.31] & \\
+                09   & (-0.31) & (-0.31) & (-0.28) &  -3.34   & \\
+                09.5 & (-0.30) & (-0.30) & (-0.27) &  [-3.68] & \\\\[-0.70em]
+                B0   & (-0.30) & (-0.30) & (-0.24) & -3.17 & \\
+                B1   & (-0.26) & (-0.26) & (-0.19) & -2.50 & \\
+                B2   & (-0.24) & (-0.24) & (-0.17) & -2.23 & \\
+                B3   & (-0.20) & (-0.20) & (-0.13) & -1.77 & \\
+                B5   & (-0.16) & (-0.16) & (-0.09) & -1.39 & \\
+                B6   & (-0.14) & (-0.14) & (-0.07) & -1.21 & \\
+                B7   & (-0.12) & (-0.12) & (-0.05) & -1.04 & \\
+                B8   & (-0.09) & (-0.09) & (-0.02) & -0.85 & \\
+                B9   & (-0.06) & (-0.06) & ( 0.00) & -0.66 & \\\\[-0.70em]
+                A0   & ( 0.00) & ( 0.00) & (+0.01) & -0.40 & \\
+                A1   & (+0.03) & (+0.03) & (+0.01) & -0.32 & \\
+                A2   & (+0.06) & (+0.06) & ( 0.00) & -0.25 & \\
+                A3   & (+0.09) & -       & ( 0.00) & -0.20 & \\
+                A5   & (+0.15) & (+0.15) & (+0.07) & -0.15 & \\
+                A7   & (+0.20) & -       & (+0.13) & -0.12 & \\\\[-0.70em]
+                F0   & (+0.30) & -       & (+0.24) & -0.08 & \\
+                F2   & (+0.38) & -       & (+0.34) & -0.06 & \\
+                F5   & (+0.45) & -       & (+0.45) & -0.04 & \\
+                F6   & +0.47   & [+0.48] & -       & -0.04 & \\
+                F7   & +0.50   & -       & -       & -0.04 & \\
+                F8   & +0.53   & -       & [+0.68] & -0.05 & \\\\[-0.70em]
+                G0   & +0.60   & -       & [+0.83] & -0.06 & \\
+                G2   & +0.64   & -       & -       & -0.07 & \\
+                G4   & -       & -       & [+0.97] & -     & \\
+                G5   & +0.68   & +0.86   & -       & -0.10 & \\
+                G8   & +0.72   & +0.93   & -       & -0.15 & \\
+                \hline
+                \multicolumn{6}{l}{\footnotesize (*) Jhon P. Cox, R. Thomas Giuli, \emph{Stellar Structure, Physical Principles}, pp. 12-13)}\\
+                \multicolumn{6}{l}{\footnotesize (**) Continúa en la pág. siguiente}
+            \end{tabularx}
+        \end{table}
+
+        \begin{table}
+            \centering
+            \begin{tabularx}{\textwidth}{ *{6}{>{\Centering}X} }
+                \multicolumn{6}{l}{\footnotesize Continuación de la tabla \ref{table:p6_cox_table4}}\\
+                \hline
+                \multirow{3}{*}{T. Sp.} & \multicolumn{3}{c}{$B-V$}  & \multicolumn{2}{c}{$B.C.$}
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{1.5ex}\rule[-0.5ex]{0pt}{0pt}\\
+                & & & & & \\[-1.05em]\cline{2-6}
+                & & & & & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                & \multicolumn{3}{c}{Clase de Luminosidad}  & \multicolumn{2}{c}{Classe de Luminosidad}
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.0ex}\rule[-1.0ex]{0pt}{0pt}\\
+                & & & & & \\[-1.05em]\cline{2-6}
+                & & & & & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                & $V$ & $III$ & $I$ &$V$ & $III$
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.0ex}\rule[-1.0ex]{0pt}{0pt}\\
+                & & & & & \\[-1.05em]\hline
+                & & & & & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                K0   & +0.81   & +1.01   & -       & -0.19 & \\
+                K2   & +0.92   & +1.16   & [+1.37] & -0.25 & \\
+                K3   & +0.98   & +1.29   & -       & -0.35 & \\
+                K4   & -       & +1.40   & -       & -     & \\
+                K5   & +1.18   & +1.52   & [+1.45] & -0.71 & \\
+                K7   & +1.38   & -       & -       & -1.02 & \\\\[-0.65em]
+                M0   & -      &  -  &  -       & -       & \\
+                M1   & +1.48  &  -  &  -       & [-1.70] & \\
+                M2   & -      &  -  &  [+1.67] & [-2.03] & \\
+                M3   & +1.49  &  -  &  -       & [-2.35] & \\
+                M4   & -      &  -  &  -       & [-2.7]  & \\
+                M5   & +1.69  &  -  &  -       & [-3.1]  & \\
+                M6   & -      &  -  &  -       & -       & \\
+                \hline
+                \multicolumn{6}{l}{\footnotesize (*) Jhon P. Cox, R. Thomas Giuli, \emph{Stellar Structure, Physical Principles}, pp. 12-13)}\\
+                \multicolumn{6}{l}{\footnotesize (**) Continúa en la pág. siguiente}
+            \end{tabularx}
+        \end{table}
+
+        \begin{table}
+            \centering
+            \caption{
+                Estándar de la secuencia principal de edad cero \\ (Problema \ref{prob:6})
+            }\label{table:p6_cox_table5}
+            \begin{tabularx}{\textwidth}{ *{4}{>{\Centering}X} }
+                \hline
+                B-V    &  Mv     &  U-B    &  Mv
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.6ex}\rule[-1.2ex]{0pt}{0pt}\\
+                & \\[-1.05em]\hline
+                & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                -0.25  &  -2.10  &  -0.90  &  -1.98  \\
+                -0.20  &  -1.10  &  -0.80  &  -1.50  \\
+                -0.15  &  -0.30  &  -0.70  &  -1.03  \\
+                -0.10  &  +0.50  &  -0.60  &  -0.59  \\
+                -0.05  &  +1.10  &  -0.50  &  -0.13  \\
+                0.00   &  +1.50  &  -0.40  &  +0.27  \\
+                +0.05  &  +1.74  &  -0.30  &  +0.66  \\
+                +0.10  &  +2.00  &  -0.20  &  +1.02  \\
+                +0.20  &  +2.45  &  -0.10  &  +1.30  \\
+                +0.30  &  +2.95  &  0.00   &  +1.50  \\
+                +0.40  &  +3.56  &         &         \\
+                +0.50  &  +4.23  &         &         \\
+                +0.60  &  +4.79  &         &         \\
+                +0.70  &  +5.38  &         &         \\
+                +0.80  &  +5.88  &         &         \\
+                +0.90  &  +6.32  &         &         \\
+                +1.00  &  +6.78  &         &         \\
+                +1.10  &  +7.20  &         &         \\
+                +1.20  &  +7.66  &         &         \\
+                +1.30  &  +8.11  &         &         \\
+                \hline
+                \multicolumn{4}{l}{\footnotesize (*) Jhon P. Cox, R. Thomas Giuli, \emph{Stellar Structure, Physical Principles}, p. 13}
+            \end{tabularx}
+        \end{table}
+
+        \begin{table}
+            \centering
+            \begin{tabularx}{0.5\textwidth}{ *{2}{>{\Centering}X} }
+                \hline
+                T. Sp.  & $\left(U-B\right)_{o}$
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.6ex}\rule[-1.2ex]{0pt}{0pt}\\
+                & \\[-1.05em]\hline
+                & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                BO V  & -1.06 \\
+                B5 V  & -0.55 \\
+                A0 V  & -0.02 \\
+                A5 V  &  0.10 \\
+                F0 V  &  0.07 \\
+                F5 V  &  0.03 \\
+                G0 V  &  0.05 \\
+                G5 V  &  0.19 \\
+                K0 V  &  0.47 \\
+                K5 V  &  1.10 \\
+                M0 V  &  1.28 \\
+                \hline
+            \end{tabularx}
+            \caption{
+                Colores intrínsecos $\left(U-B\right)_O$
+            }\label{table:p6_color_int_UB}
+        \end{table}
+
+        \begin{table}
+            \centering
+            \begin{tabularx}{0.5\textwidth}{ *{2}{>{\Centering}X} }
+                \hline
+                T. Sp.  & $\left(B-V\right)_{o}$
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.6ex}\rule[-1.2ex]{0pt}{0pt}\\
+                & \\[-1.05em]\hline
+                & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
                 BO & -0.25 \\
                 A0 &  0.00 \\
                 F0 &  0.25 \\
@@ -295,10 +558,9 @@
                 K5 &  1.70 \\
                 MO &  1.94 \\
                 \hline
-            \end{tabular}
+            \end{tabularx}
             \caption{
                 Colores intrínsecos $\left(U-B\right)_O$
-            }\label{table:3}
+            }\label{table:p13_color_int_UB}
         \end{table}
-    \end{problem}
 \end{document}

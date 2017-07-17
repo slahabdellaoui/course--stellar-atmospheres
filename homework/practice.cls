@@ -75,14 +75,19 @@
 }{\par\medskip\ignorespacesafterend}
 
 % The problem part environment
-\newcounter{problempart}[problem]
-\renewcommand{\theproblempart}{\theproblem\alph{problempart}}
-\def\@theproblempart{\alph{problempart})}
+\newcounter{ppart}[problem]
+\renewcommand{\theppart}{\theproblem\alph{ppart}}
+\def\@theppart{\alph{ppart})}
 
-\newenvironment{problempart}[1]{
-  \refstepcounter{problempart}
+\newenvironment{ppart}[1]{
+  \ifnum\the\value{ppart}=0
+    \bigskip
+  \else
+    \medskip
+  \fi
+  \refstepcounter{ppart}
   \setlength{\leftskip}{10pt}
-  \@theproblempart~{#1}%
+  \@theppart~{#1}%
 }
 
 % The problem recomendation environment
@@ -113,6 +118,18 @@
   \@thesolution\par%
   {#1}%
 }
+
+% The problem solution part environment
+\newcounter{spart}[problem]
+\renewcommand{\thespart}{\theproblem\alph{spart}}
+\def\@thespart{\alph{spart})}
+
+\newenvironment{spart}[1]{
+  \refstepcounter{spart}
+  % \setlength{\leftskip}{10pt}
+  \@thespart~{#1}%
+}
+
 
 %% make title customization ---------------------------------------------------
 % Logo: Optional

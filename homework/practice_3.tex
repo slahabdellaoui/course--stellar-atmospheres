@@ -1,6 +1,6 @@
 %% Preámbulo
 %% ----------------------------------------------------------------------------
-\documentclass[12pt,spanish,a4paper]{practice}
+\documentclass[12pt,a4paper]{practice}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -8,9 +8,15 @@
 \usepackage{hyperref}
 \usepackage{luximono}
 \usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{amssymb}
 \usepackage{amstext}
 \usepackage{caption}
 \usepackage{charter}
+\usepackage{mathabx}
 
 %% Settings
 %% ----------------------------------------------------------------------------
@@ -70,7 +76,53 @@
         }
     }
     \course{Atmósferas Estelares}
-    \title{Práctica N\textdegree\ 3}
+    \title{Práctica N\textdegree\ 3}b
     \maketitle
+
+
+    \begin{problem}\label{prob:1}
+    Para las estrellas de la \ref{tabla 1 }
+    \end{problem}
+
+    \begin{table}
+        \centering
+            \caption{
+                Curvas de sensibilidad de los filtros $U$, $B$ y $V$ del sistema fotométrico $UBV$, y del ojo humano para el día y la noche. \\ (Problema \ref{prob:1})
+            }\label{table:p1_curvas_sensibilidad}
+            \begin{tabularx}{\textwidth}{ *{6}{>{\Centering}X} }
+                \hline
+                $\lambda(\mu)$  & $U_\lambda$  & $B_\lambda$  & $V_\lambda$  & $O_{\textit{d\'ia}}$  & $O_{\textit{noche}}$
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.6ex}\rule[-1.2ex]{0pt}{0pt}\\
+                & & & & & \\[-1.05em]\hline
+                & & & & & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                0.28  & 0.00  & -     & -     & -     & -    \\
+                0.30  & 0.13  & -     & -     & -     & -    \\
+                0.32  & 0.60  & -     & -     & -     & -    \\
+                0.34  & 0.92  & -     & -     & -     & -    \\
+                0.36  & 1.00  & 0.00  & -     & -     & -    \\
+                0.38  & 0.72  & 0.13  & -     & -     & 0.00 \\
+                0.40  & 0.09  & 0.92  & -     & -     & 0.02 \\
+                0.42  & 0.00  & 1.00  & -     & 0.00  & 0.08 \\
+                0.44  & -     & 0.92  & -     & 0.02  & 0.21 \\
+                0.46  & -     & 0.76  & 0.00  & 0.06  & 0.41 \\
+                0.48  & -     & 0.56  & 0.01  & 0.14  & 0.65 \\
+                0.50  & -     & 0.39  & 0.36  & 0.32  & 0.90 \\
+                0.52  & -     & 0.20  & 0.91  & 0.71  & 0.96 \\
+                0.54  & -     & 0.07  & 0.98  & 0.95  & 0.68 \\
+                0.56  & -     & 0.00  & 0.80  & 1.00  & 0.35 \\
+                0.58  & -     & -     & 0.59  & 0.87  & 0.14 \\
+                0.60  & -     & -     & 0.39  & 0.63  & 0.05 \\
+                0.62  & -     & -     & 0.22  & 0.38  & 0.02 \\
+                0.64  & -     & -     & 0.09  & 0.18  & 0.01 \\
+                0.66  & -     & -     & 0.03  & 0.06  & 0.00 \\
+                0.68  & -     & -     & 0.01  & 0.02  & -    \\
+                0.70  & -     & -     & 0.00  & 0.00  & -    \\
+                \hline
+            \end{tabularx}
+        \end{table}
+
+
 
 \end{document}

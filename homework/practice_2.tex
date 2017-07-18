@@ -1,6 +1,6 @@
 %% Preámbulo
 %% ----------------------------------------------------------------------------
-\documentclass[12pt,spanish,a4paper]{practice}
+\documentclass[12pt,a4paper]{practice}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -8,9 +8,15 @@
 \usepackage{hyperref}
 \usepackage{luximono}
 \usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{amssymb}
 \usepackage{amstext}
 \usepackage{caption}
 \usepackage{charter}
+\usepackage{mathabx}
 
 %% Settings
 %% ----------------------------------------------------------------------------
@@ -43,6 +49,9 @@
     width=0.9\textwidth,
 }
 
+% tabularx rule width
+\setlength{\arrayrulewidth}{1.5pt}
+
 %% Definicion de comandos
 %% ----------------------------------------------------------------------------
 \makeatletter
@@ -72,5 +81,141 @@
     \course{Atmósferas Estelares}
     \title{Práctica N\textdegree\ 2}
     \maketitle
+     \begin{problem}\label{prob:1}
 
+        \begin{ppart}\label{prob:1:a}
+        Suponiendo $\mu = 2.5$ (peso molecular medio) y $T = 10 K$,
+        calcular cual fue el radio probable de la nube prOtotoestelar que dió origen al sol. Suponen que ello tenía simetría esférico.
+        \end{ppart}
+
+        \begin{ppart}\label{prob:1:b}
+        Teniendo en cuenta las mismas suposiciones y los mismos valores de $\mu$ y de $T$ de la parte $\ref{prob:1:a}$, Calcular los radios de las nubes protoestelares de las estrellas de la secuencia principal de tipos espectrales BO, AO y FO. Para este cálculo utilizar la relación masa-luminosidad
+
+        $$
+            L/L_{\odot} = 1.2(M/M_{\odot})^{4.0}
+        $$
+
+        y recordar que $L_{\odot} = 3.83 * 10^{33} \log /seg, M_{\odot} = 1.99*10^{33} g, M_{bol} = 4.77$. Usar las tablas de la práctica 1 donde se tiene $M_{v},CB=f(T.Sp.)$.
+        \end{ppart}
+    \end{problem}
+
+    \begin{problem}\label{prob:2}
+    Suponiendo que el campo de radiación en una nube protoestelar fuera isótipo, determinar cúal es la relación crítica entre la presíon de radiación y la presión del gas cuyas masas totales son las del ejercicio $\ref{prob:1:a}$ y $\ref{prob:1:b}$. Suponer $\mu =2.5$. Te nener en cuenta que $P_{r}$ (presión de radiación) $ = \frac{4\sigma}{C3}*T^{4}; \sigma$ :constante de Stefan Boltzmamm y C: la velocidad de la luz.
+    \end{problem}
+
+    \begin{problem}\label{prob:3}
+    Mostrar que en una estrella esférica, las cpas externas al radio r no influyen en el cálculo de la gravedad en r.
+    \end{problem}
+
+    \begin{problem}\label{prob:4}
+        \begin{ppart}\label{prob:4:a}
+        Obtener una expresión de la presión central $P_{c}$ de una estrella en función de la masa total M y de su radio R.
+        \end{ppart}
+
+        \begin{ppart}\label{prob:4:b}
+        Obtener una expresión de $P_{c}$ en función de la densidad central $\rho_{\odot}$ de una estrella.
+        \end{ppart}
+
+        \begin{ppart}\label{prob:4:c}
+        Obtener una expresión poco la temperatura media $\bar{T}$ de una estrella en función de la masa M y de R.
+        \end{ppart}
+
+        \begin{ppart}\label{prob:4:d}
+        Obtener  una expresión poco la presión medio $\bar{P}$ de una estrella en función de M y de R.
+        \end{ppart}
+
+        \begin{ppart}\label{prob:4:e}
+        Obtener $\bar{P}$  usando la luz de los gases perfectos.
+        \end{ppart}
+
+        \begin{ppart}\label{prob:4:f}
+        Comparar $\bar{P}$ con $P_{c} = P_{c} (M,R)$
+        \end{ppart}
+    \end{problem}
+
+    \begin{problem}\label{prob:5}
+    Dos valores para $P_{c}(M,R)$, $\bar{P}(M,R)$, $\bar{\rho}(M,R)$ y $\bar{T}(M,R)$ para las estrellas de la tabla \ref{table:p5_table}. Usar $\mu = 0.6$
+    \end{problem}
+
+    \begin{problem}\label{prob:6}
+    Comparar $\bar{P}$ y $\bar{P}$ del ejercicio \ref{table:p5_table} con la densidad medio $\bar{\rho}_{\Earth}$
+    \end{problem}
+
+    \begin{problem}\label{prob:7}
+        \begin{ppart}\label{prob:7:a}
+        Usando la ecuación del transporte radioactivo de energia en el interior de una estrella, btener una relación masa - radio - luminosidad.
+        \end{ppart}
+
+        \begin{ppart}\label{prob:7:b}
+        Sabiendo que cada clase de luminosidad se caracteriza por una gravedad neferticial aproximadamente constante, transformar la relacion obteniendo en \ref{prob:7:a} en relación masa - luminosidad para cada clase de luminosidad.
+        \end{ppart}
+    \end{problem}
+
+    \begin{problem}\label{prob:8}
+    La luminnosidad de una estrella puede representarse tambien por la relacion siguiente:
+            $$
+            L = \frac{V.E}{t}
+            $$
+
+        donde:  L: luminosidad (erg/cm)
+                V: volumen
+                E: energía radioactiva por unidad de volumen
+                T: tiempo que un fotón requiere poco recomen una distancia promedio equivalente al radio R de la estrella.
+        $t= 3R^{2}\bar c$
+        l: camino libre medio de un fotón
+        l $\alpha T^{3.5}* \rho^{-2}$ si opacidad de Kramees
+        l $\alpha \rho^{-1}$ si opacidad de electrones
+        $E = a.T^{4}$   a: cte de radiación $= \frac{4 \rho}{c} $
+
+        La ecuacion de estao de las estrellas puede ser:
+        P $\alpha \rho^{T}$ para masas pequeñas e intermedias.
+        P $\alpha T^{4}$ para grandes masas.
+
+        Sabiendo que
+        P $\alpha M/R^{3}$ y P $\alpha M^{2}/R^{4}$
+
+    Encontrar las cuatro expresiones posibles de L $\alpha L(M,R)$ combinando las diferentes masas de l y P. Compara las expresiones obtenidas con la relación masa - luminosidad empirica útil para estrellas de masas intermedios utilizado en el ejercicio \ref{prob:1:b}.  Decir que combinancion de ecuaciones de estado y opacidades convinan para estas estrellas.
+    \end{problem}
+
+    \begin{problem}\label{prob:9}
+    Obtener la distribución de la tempratura y de la presión en función de r de una envoltura estelar. Usar opacidades de Kramers y $\Phi = 10^{-6}$, donde:
+    $$
+        \Phi = \frac{3 \varkappa_o}{4ac(4\pi)^{3}}\cdot \left(\frac{k}{GH}\right)^{7.5}\cdot \frac{LR^{0.5}}{M^{5.5}}\cdot \frac{1}{\mu^{7.5}}
+    $$
+
+    $$
+        \varkappa = \varkappa_o \cdot \rho\cdot T^{3.5}\ (cm^{2}/ gm)
+    $$
+    Calcular para $\chi$= r/R = 0.01,0.1,0.2,0.3,0.4 y 0.5.
+
+    \end{problem}
+
+        \begin{table}
+            \centering
+            \caption{
+                Relación de $M/M_{\odot}$ y $R/R_{\odot}$ con el tipo espectral \\ (Problema \ref{prob:5})
+            }\label{table:p5_table}
+            \begin{tabularx}{\textwidth}{ *{3}{>{\Centering}X} }
+                \hline
+                T. Sp.    &  $M/M_{\odot}$    &  $R/R_{\odot}$
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.6ex}\rule[-1.2ex]{0pt}{0pt}\\
+                & \\[-1.05em]\hline
+                & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                  O5 v  &  39.8  &      17.8  \\
+                  B0 v  &  17.8  &      7.4   \\
+                  B5 v  &   6.5  &      3.8   \\
+                  A0 v  &   3.2  &      2.5   \\
+                  A5 v  &   2.1  &     1.74   \\
+                  F0 v  &   1.7  &     1.35   \\
+                  F5 v  &   1.3  &     1.20   \\
+                  G0 v  &   1.1  &     1.05   \\
+                  G5 v  &  0.93  &     0.93   \\
+                  K0 v  &  0.78  &     0.85   \\
+                  K5 v  &  0.69  &     0.74   \\
+                  M0 v  &  0.47  &     0.63   \\
+                \hline
+            \end{tabularx}
+        \end{table}
 \end{document}

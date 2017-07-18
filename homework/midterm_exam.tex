@@ -1,0 +1,111 @@
+%% Preámbulo
+%% ----------------------------------------------------------------------------
+\documentclass[12pt,spanish,a4paper]{practice}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{luximono}
+\usepackage{textcomp}
+\usepackage{amstext}
+\usepackage{caption}
+\usepackage{charter}
+
+%% Settings
+%% ----------------------------------------------------------------------------
+% hyperref
+\hypersetup{
+    pdftitle={Atm\'{o}sferas Estelares - Pr\'{a}ctica 1},
+    pdfauthor={Mart\'{i}n Josemar\'{i}a Vuelta Rojas},
+    pdfpagelayout=OneColumn,
+    pdfnewwindow=true,
+    pdfdisplaydoctitle=true,
+    pdfstartview=XYZ,
+    plainpages=false,
+    unicode=true,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=3,
+    breaklinks=true,
+    colorlinks=true,
+    pdfborder={0 0 0}
+}
+
+% graphicx
+\graphicspath{{resources/img/}}
+
+% caption
+\captionsetup{
+    labelfont=bf,
+    textfont=it,
+    justification=centering,
+    width=0.9\textwidth,
+}
+
+%% Definicion de comandos
+%% ----------------------------------------------------------------------------
+\makeatletter
+
+%% Fuente de ancho fijo
+\renewcommand{\ttdefault}{lmtt}
+\renewcommand{\spanishtablename}{Tabla}
+
+\makeatother
+
+%% Documento
+%% ----------------------------------------------------------------------------
+\begin{document}
+    %% Titulo, autor y resumen --------------------------------------------------
+    \logo{unmsm.png}
+    \university{
+        Universidad Nacional Mayor de San Marcos\\
+        {
+            \scriptsize{
+                \textit{
+                    \textup{
+                        Universidad del Perú, Decana de América}
+                    }
+            }
+        }
+    }
+    \course{Atmósferas Estelares}
+    \title{Examen Parcial de Física de Plasmas}
+    \maketitle
+
+    \begin{problem}
+        En un sistema binario se conocen la magnitud absoluta del sstema y la magnitud absoluta de una de las componentes. Dar la expresión que permite calcular la magnitud absoluta de la otra componente.
+    \end{problem}
+
+    \begin{problem}
+        Observacionalmente se obtiene que para estrellas masivas de la secuencia principal existe la siguiente proporcionalidad entre la luminosidad bolométrica y la masa: $L\ \alpha\ M^{4}$. ¿A qué será proporcional la relación $T_{eff}/T$? Donde $T_{eff}$ es la temperatura efectiva y $T$ es la temperatura media.
+    \end{problem}
+
+    \begin{problem}
+        Si $f_{\lambda}^{obs}$ es el flujo observado de una estrella en una longitud de onda dada y $f_{\lambda}^{0}$ la correccion sin absorción interestelar. Dar la relación entre ambas en función de la absorción interestelar.
+    \end{problem}
+    
+    \begin{problem}
+        si la intensidad específica no depende del ángulo es decir es isótropa, demostrar que es flujo radiativo es nulo $F_{V}=0$ y se cumple que $J_{V}=3K_{V}$.
+    \end{problem}
+
+    \begin{problem}
+       Usando la relación de Schwarzchild-Milne
+   
+            $$
+                J(\tau) = \frac{1}{2} \displaystyle{\int_{0}^{\infty}} S(\tau) E_{1} (t-\tau) dt
+            $$
+
+        y considerando
+
+            $$
+                S=J= \frac{3}{4} F\left(\tau+\frac{2}{3}\right)
+            $$
+        
+        Demostrar que:
+
+            $$
+                J(\tau) = \frac{3}{4}F\left(\tau+\frac{2}{3}-\frac{1}{3}E_{2}(\tau)+\frac{1}{2}E_{3}(\tau)\right)
+            $$
+    \end{problem}
+\end{document}

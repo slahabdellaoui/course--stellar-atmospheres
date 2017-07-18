@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{luximono}
 \usepackage{textcomp}
+\usepackage{amsmath}
 \usepackage{amstext}
 \usepackage{caption}
 \usepackage{charter}
@@ -72,5 +73,179 @@
     \course{Atmósferas Estelares}
     \title{Práctica N\textdegree\ 5}
     \maketitle
+    \begin{problem}\label{prob:1}
+    Obtener el valor del factor de Eddington $f_{v} (J_{v}=f_{v}.K_{v})$ para los siguientes representaciones de la intensidad especifica:
+
+        \begin{ppart}\label{prob:1:a}
+            \begin{equation*}
+                I_{\nu}(\tau_{\nu},\mu) = \left\{
+                \begin{array}{l c l}
+                    I_{\nu}^{o}(\tau_{\nu}) & ; & 0 \leq \mu \leq 1 \\
+                    0 & ; &  \mu < 0
+                \end{array}
+                \right. 
+            \end{equation*}
+            
+        \end{ppart}
+        
+        \begin{ppart}\label{prob:1:b}
+            \begin{equation*}
+                I_{\nu}(\tau_{\nu},\mu) = \left\{
+                \begin{array}{l c l}
+                    I_{\nu}^{o}(\tau_{\nu}) & ; & 0 \leq \mu \leq 1 \\
+                    I_{\nu}^{1}(\tau_{\nu}) & ; & -1 \leq \mu \leq 0
+                \end{array}
+                \right. 
+            \end{equation*}
+            
+        \end{ppart}
+
+        \begin{ppart}\label{prob:1:c}
+            \begin{equation*}
+                I_{\nu}(\tau_{\nu},\mu) = C_{\nu}^{(0)}(\tau_{\nu}) + \sum_{k=1}^{\infty} C_{\nu (\tau_{\nu})}^{2k-1} . \mu^{2k-1}
+            \end{equation*}
+        \end{ppart}
+
+        \begin{ppart}\label{prob:1:d}
+            \begin{equation*}
+                I_{\nu}(\tau_{\nu},\mu) = d_{\nu}^{(0)}(\tau_{\nu}) + \sum_{k=1}^{\infty} d_{\nu (\tau_{\nu})}^{2\mu} . \mu^{2k}
+            \end{equation*}
+        \end{ppart}
+
+        \begin{ppart}\label{prob:1:e}
+            \begin{equation*}
+                I_{\nu}(\tau_{\nu},\mu) = I_{\nu}^{0}(\tau_{\nu}) . \delta(\mu - \mu_{0})
+            \end{equation*}
+        \end{ppart}
+    \end{problem}
+
+    \begin{problem}\label{prob:2}
+        Para cada uno de los casos del ejercicio 1 obtener la expresión del flujo astrofisico $F_{\nu}(\tau_{\nu})$.
+    \end{problem}
+    
+    \begin{problem}\label{prob:3}
+        Obtener el factor de Eddington $f=f(\tau)$ usando las relacione de Schwarzschild-Milne y para los casos donde
+
+        \begin{ppart}\label{prob:3:a}
+                $S(\tau) = \frac{3}{4}F(\tau + \frac{2}{3})$
+        \end{ppart}
+
+        \begin{ppart}\label{prob:3:b}
+            $S(\tau) = S$
+        \end{ppart}
+
+        
+        Dar el noln numerico de f en los limites $\tau = 0$ y $\tau \to \infty$.
+    \end{problem}
+    
+    \begin{problem}\label{prob:4}
+        
+        utilizando la aproxiomacion de Eddington $(f = 3)$ obtener una expresion de la intensidad media $J_{\nu}(\tau_{\nu})$ para el caso donde la funcion fuente esta dada por la expresión 
+
+        $$S_{\nu}(\tau_{nu}) = S_{\nu}^{(0)} + s_{\nu}^{1}.\tau_{\nu} + S_{\nu}^{(2)}.e^{-\tau_{\nu} / \tau_{0}}$$
+
+    \end{problem}
+    
+    \begin{problem}\label{prob:5}
+
+        \begin{ppart}\label{prob:5:a}
+            Dar el valor numerico de la ley del oscurecimiento al borde $I(0,\mu)/I(0,1)$ de una atmosfera gris obtenida usando la aproximacion de las dos corrientes (representacion de $I(\tau,\mu)$ segun la parte b del ejercicio 1).
+        \end{ppart}
+
+        \begin{ppart}\label{prob:5:b}
+            Dar el valor numerico de la ley del ordenamiento al borde de una atmosfera gris obtenido con la funcion de Hopf en la aproximacion de labs (practica 4)    
+        \end{ppart}
+        
+        \begin{ppart}\label{prob:5:c}
+            Compare a) y b) con la ley del ordenamiento al borde de una atmosfera gris obtenida con la expreción exácta de la funcion de Hopf:
+
+           
+        \end{ppart}
+            \begin{table}[h!]
+            \centering
+                \begin{tabular}{c|c} 
+                     
+                     $\mu$ & $I(0,\mu)/I(0,1)$ \\ [0.5ex] 
+                     \hline
+                     1.0 & 1.000   \\ 
+                     0.9 & 0.939   \\
+                     0.8 & 0.878  \\
+                     0.7 & 0.816  \\
+                     0.6 & 0.755  \\
+                     0.5 & 0.692  \\
+                     0.4 & 0.629  \\
+                     0.3 & 0.565  \\
+                     0.2 & 0.499  \\
+                     0.1 & 0.429 \\
+                     0.0 & 0.344 \\ [1ex] 
+                     
+                \end{tabular}
+            \end{table}
+        
+    \end{problem}
+
+    \begin{problem}\label{prob:6}
+        Obtener la expresión del flujo caliente de una copa gaseosa plano - forodilo finito de profundidad óptica total $\tau_{\nu}$ y $S_{\nu}(\tau_{\nu}) = cte$, cuejo fondo $(\tau_{\nu}=\tau_{\nu})$ esto iluminado por una radiación $I_{\nu}(\mu) = cte$. donde las expreciones corespondientes a los como limites:
+
+        \begin{ppart}\label{prob:6:a}
+            copa opticamente delgado $(\tau_{\nu}<< 1)$
+        \end{ppart}
+
+        \begin{ppart}\label{prob:6:b}
+            copa opticamente espeso $(\tau_{\nu}>>1)$    
+        \end{ppart}
+        
+        
+    \end{problem}
+    
+    \begin{problem}\label{prob:7}
+        \begin{ppart}\label{prob:7:a}
+            Otener la función de Hopf para el cono $M=1$ y $M=2$
+
+            \begin{equation*}
+                \begin{array}{l c l c l}
+                    M=1 & \mu_{1}=1/\sqrt{3}  & a_{1} = a_{-1} = 1\\
+                      & \mu_{-1}= -1/\sqrt{3}  &  \\
+                       &         &             &   \\
+                    M=2 & \mu_{1}=0.33998  & a_{1} = a_{-1} =0.65215\\
+                      & \mu_{-1}= -\mu_{1}  &  \\
+                    &         &             &   \\
+                      & \mu_{2}=0.86114  & a_{2} = a_{-2} =0.34785\\
+                      & \mu_{-2}= -\mu_{2}  &  
+                \end{array}
+            \end{equation*}
+        \end{ppart}
+        
+
+        \begin{ppart}\label{prob:7:b}
+            ¿Cual es el valor de la funcion de Hopf $q(\tau)$ para cada uno de las aproximaciones en $ \tau = 0 $ y $\tau = \infty$?    
+        \end{ppart}
+
+        \begin{ppart}\label{prob:7:c}
+            Calcular el valor de la función $q(\tau)$ obteniendo en la oproximacon $M=2$ y compara con un valor exacto:
+
+                \begin{table}[h!]
+                \centering
+                    \begin{tabular}{c |c l c|c} 
+                         
+                         $\tau$ & $q(\tau)$ &  &$\tau$ & $q(\tau)$ \\ [0.5ex] 
+                         \hline
+                         0.00 & 0.5774 &  &0.8 & 0.6935 \\ 
+                         0.05 & 0.6108 &  & 1.0 & 0.6985\\
+                         0.10 & 0.6279 &  & 1.5 & 0.7051\\
+                         0.20 & 0.6496 &  & 2.0 & 0.7079\\
+                         0.30 & 0.6634 &  & 3.0 & 0.7078\\
+                         0.40 & 0.6731 &  & 4.0 & 0.7103\\
+                         0.50 & 0.6802 &  & 0.5 & 0.71040\\
+                         0.60 & 0.6858 &  & $\infty$ & 0.71045\\ [1ex] 
+                         
+                    \end{tabular}
+                \end{table}
+        \end{ppart}
+        
+        
+    \end{problem}
+    
 
 \end{document}
+

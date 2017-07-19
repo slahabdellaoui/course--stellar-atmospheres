@@ -1,6 +1,6 @@
 %% Preámbulo
 %% ----------------------------------------------------------------------------
-\documentclass[12pt,spanish,a4paper]{practice}
+\documentclass[12pt,a4paper]{practice}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -8,6 +8,11 @@
 \usepackage{hyperref}
 \usepackage{luximono}
 \usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{amssymb}
 \usepackage{amstext}
 \usepackage{caption}
 \usepackage{charter}
@@ -43,6 +48,9 @@
     width=0.9\textwidth,
 }
 
+% tabularx rule width
+\setlength{\arrayrulewidth}{1.5pt}
+
 %% Definicion de comandos
 %% ----------------------------------------------------------------------------
 \makeatletter
@@ -72,5 +80,63 @@
     \course{Atmósferas Estelares}
     \title{Práctica N\textdegree\ 4}
     \maketitle
+    \begin{problem}
+    Determinar la estructura de la atmósfera de una estrella cuyo parámetro fundamentales son los siguientes:
 
+        \begin{table}[!h]
+            \centering
+            \begin{tabularx}{0.5\textwidth}{ *{3}{>{\Centering}X} }
+                \hline
+                $T_{eff}$ & $\log(g)$ & $\bar{\mu}$
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.6ex}\rule[-1.2ex]{0pt}{0pt}\\
+                & & \\[-1.05em]\hline
+                & & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                18 000 & 4.0 &  0.666 \\
+                20 000 & 4.0 &  0.658 \\
+                22 500 & 4.0 &  0.655 \\
+                25 000 & 4.0 &  0.653 \\
+                \hline
+            \end{tabularx}
+        \end{table}
+
+        Para el celaculo suponer:
+
+        \begin{itemize}
+            \item Que la distribución de la temperatura en función de la profundidad óptica de Rosseland está dada por la distribución de temperatura de una atmosfera gris.
+
+            \item Que para la temperatura efectiva dado, se pueda utilizar un valor medio constante del peso molecular $\mu$
+        \end{itemize}
+
+        En este trabajo se debe tabular:
+
+        \begin{itemize}
+            \item $\tau$: Profundidad óptica de Rosseland.
+            \item $T(\tau)$: Temperatura en $k$.
+            \item $\bar{\varkappa}(\tau)$: Coeficiente de $\mu_{0}$ de Rosseland
+            \item $P_{g}(\tau)$: Presión del gas en $dym/cm^2$
+            \item $P_{r}(\tau)$: Presión de radiación en $dym/cm^2$
+            \item $\rho(\tau)$: Densidad en $gr/cm^3$
+            \item $h(\tau)$: Altura atmosférica en cm.
+        \end{itemize}
+
+        \begin{table}[!h]
+            \centering
+            \begin{tabularx}{0.5\textwidth}{ *{3}{>{\Centering}X} }
+                \hline
+                $log(g)$ & $a$ & $b$
+                %!-> BEGIN monkeypatch to manage spacings in table header
+                \rule{0pt}{2.6ex}\rule[-1.2ex]{0pt}{0pt}\\
+                & & \\[-1.05em]\hline
+                & & \\[-1.05em]
+                %!-> END monkeypatch to manage spacings in table header
+                3.90 & -0.3592 &  0.666 \\
+                3.95 & -0.4019 &  0.658 \\
+                4.00 & -0.4673 &  0.655 \\
+                4.05 & -0.4948 &  0.653 \\
+                \hline
+            \end{tabularx}
+        \end{table}
+    \end{problem}
 \end{document}

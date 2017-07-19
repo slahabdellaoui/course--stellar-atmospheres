@@ -80,6 +80,11 @@
 \def\@theppart{\alph{ppart})}
 
 \newenvironment{ppart}[1]{
+  \ifnum\the\value{ppart}=0
+    \bigskip
+  \else
+    \medskip
+  \fi
   \refstepcounter{ppart}
   \setlength{\leftskip}{10pt}
   \@theppart~{#1}%
